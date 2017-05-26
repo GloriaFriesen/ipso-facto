@@ -33,14 +33,14 @@ Politically engaged citizens.
 - [ ] Implement adapters
   - [ ] ArrayAdapter to display list of legislators
 - [ ] Gather user input and pass to another activity
-  - [ ] EditText on MainActivity will pass user inputted zipcode to LegislatorActivity
+  - [ ] EditText on MainActivity will pass user inputted state to LegislatorActivity
 - [ ] Validate forms
 - [ ] Use ButterKnife to bind views
 - [ ] Implement View.OnClickListener
 
 #### Week 2 Objectives:
 - [ ] Implement OkHttp to retrieve data from a backend
-  - [ ] Use Sunlight Congress API to retrieve legislator data
+  - [ ] Use ProPublica API to retrieve legislator data
 - [ ] Create data model
 - [ ] Display list of information using a RecyclerView
 - [ ] Use fragments and PageAdapter to swipe through views
