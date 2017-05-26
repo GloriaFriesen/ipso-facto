@@ -117,4 +117,13 @@
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="192dp" />
 
+    <AutoCompleteTextView
+        android:id="@+id/stateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="State"
+        android:dropDownHeight="wrap_content"
+        android:dropDownWidth="match_parent"
+    />
+
 </android.support.constraint.ConstraintLayout>
