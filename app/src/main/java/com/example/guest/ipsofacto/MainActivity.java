@@ -36,9 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, LegislatorListActivity.class);
             intent.putExtra("location", location);
             startActivity(intent);
-        }
-        //buttons to link from main activity to about and contact activities, eventually make navigation drawer
-        else if (v == mStartAboutActivity) {
+        } else if (v == mStartAboutActivity) {
             Intent intent = new Intent(MainActivity.this, AboutActivity.class);
             startActivity(intent);
         } else if (v == mStartContactActivity) {
