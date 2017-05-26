@@ -23,11 +23,11 @@ Politically engaged citizens.
 ## Preparations
 
 #### Week 1 objectives:
-- [ ] 3 (minimum) activities
-  - [ ] MainActivity
-  - [ ] ContactActivity
-  - [ ] AboutActivity
-  - [ ] LegislatorActivity
+- [x] 3 (minimum) activities
+  - [x] MainActivity
+  - [x] ContactActivity
+  - [x] AboutActivity
+  - [x] LegislatorActivity
 - [ ] Display list of information
   - [ ] Display hard coded list of legislators in LegislatorsActivity
 - [ ] Implement adapters
@@ -35,8 +35,8 @@ Politically engaged citizens.
 - [ ] Gather user input and pass to another activity
   - [ ] EditText on MainActivity will pass user inputted state to LegislatorActivity
 - [ ] Validate forms
-- [ ] Use ButterKnife to bind views
-- [ ] Implement View.OnClickListener
+- [x] Use ButterKnife to bind views
+- [x] Implement View.OnClickListener
 
 #### Week 2 Objectives:
 - [ ] Implement OkHttp to retrieve data from a backend
