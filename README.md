@@ -61,7 +61,7 @@ Politically engaged citizens.
 - [ ] Publish to Google Play
 
 ## Known Bugs
-* Soft input keyboard opens when app initially runs
+
 
 ## Support and contact details
 Questions? Concerns? Suggestions? Reach out to me via github: <https://github.com/GloriaFriesen>.
