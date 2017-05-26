@@ -20,14 +20,14 @@ Politically engaged citizens.
 * Find project Ipso Facto on local machine
 * In Android Studio, run app on emulator or connected Android device (Keyboard shortcut: Shift+F10)
 
-## Preparations
+## Objectives
 
-#### Week 1 objectives:
+#### Week 1:
 - [x] 3 (minimum) activities
   - [x] MainActivity
   - [x] ContactActivity
   - [x] AboutActivity
-  - [x] LegislatorActivity
+  - [x] LegislatorListActivity
 - [ ] Display list of information
   - [ ] Display hard coded list of legislators in LegislatorsActivity
 - [ ] Implement adapters
@@ -38,7 +38,7 @@ Politically engaged citizens.
 - [x] Use ButterKnife to bind views
 - [x] Implement View.OnClickListener
 
-#### Week 2 Objectives:
+#### Week 2:
 - [ ] Implement OkHttp to retrieve data from a backend
   - [ ] Use ProPublica API to retrieve legislator data
 - [ ] Create data model
@@ -46,7 +46,7 @@ Politically engaged citizens.
 - [ ] Use fragments and PageAdapter to swipe through views
 - [ ] Incorporate implicit intent
 
-#### Week 3 Objectives:
+#### Week 3:
 - [ ] Firebase user authentication
 - [ ] Save and retrieve data using Firebase
 - [ ] Firebase-RecyclerAdapter to display from database
@@ -55,13 +55,13 @@ Politically engaged citizens.
 - [ ] Use dialogs to inform users of login status
 - [ ] Use SearchView to gather user input
 
-#### Week 4 Objectives:
+#### Week 4:
 - [ ] Include 2 (minimum) gesture listeners, animations, or utilize camera
 - [ ] Implements alternate resource
 - [ ] Publish to Google Play
 
 ## Known Bugs
-We'll see.
+* Soft input keyboard opens when app initially runs
 
 ## Support and contact details
 Questions? Concerns? Suggestions? Reach out to me via github: <https://github.com/GloriaFriesen>.
