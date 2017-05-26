@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button mSubmitLocationButton;
     @Bind(R.id.locationEditText)
     EditText mLocationEditText;
+    @Bind(R.id.startAboutActivity) Button mStartAboutActivity;
+    @Bind(R.id.startContactActivity) Button mStartContactActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ButterKnife.bind(this);
 
         mSubmitLocationButton.setOnClickListener(this);
+        mStartAboutActivity.setOnClickListener(this);
+        mStartContactActivity.setOnClickListener(this);
     }
 
     @Override
@@ -34,10 +38,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }
         //buttons to link from main activity to about and contact activities, eventually make navigation drawer
-//        else if (v == mStartAboutActivity) {
-//
-//        } else if (v == mStartContactActivity) {
-//
-//        }
+        else if (v == mStartAboutActivity) {
+            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(intent);
+        } else if (v == mStartContactActivity) {
+            Intent intent = new Intent(MainActivity.this, ContactActivity.class);
+            startActivity(intent);
+        }
     }
 }
