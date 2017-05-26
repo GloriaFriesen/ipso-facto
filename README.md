@@ -28,12 +28,12 @@ Politically engaged citizens.
   - [x] ContactActivity
   - [x] AboutActivity
   - [x] LegislatorListActivity
-- [ ] Display list of information
-  - [ ] Display hard coded list of legislators in LegislatorsActivity
-- [ ] Implement adapters
-  - [ ] ArrayAdapter to display list of legislators
-- [ ] Gather user input and pass to another activity
-  - [ ] EditText on MainActivity will pass user inputted state to LegislatorActivity
+- [X] Display list of information
+  - [X] Display hard coded list of legislators in LegislatorsActivity
+- [X] Implement adapters
+  - [X] ArrayAdapter to display list of legislators
+- [X] Gather user input and pass to another activity
+  - [X] EditText on MainActivity will pass user inputted state to LegislatorActivity
 - [ ] Validate forms
 - [x] Use ButterKnife to bind views
 - [x] Implement View.OnClickListener

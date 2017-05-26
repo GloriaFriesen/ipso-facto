@@ -1,8 +1,10 @@
 package com.example.guest.ipsofacto;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -13,6 +15,7 @@ public class LegislatorListActivity extends AppCompatActivity {
     private String[] phones = new String[] {"202-555-1234", "503-867-5309", "347-489-4608"};
 
     @Bind(R.id.listView) ListView mListView;
+    @Bind(R.id.locationTextView) TextView mLocationTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,5 +25,9 @@ public class LegislatorListActivity extends AppCompatActivity {
 
         LegislatorsArrayAdapter adapter = new LegislatorsArrayAdapter(this, android.R.layout.simple_list_item_1, names, parties, phones);
         mListView.setAdapter(adapter);
+
+        Intent intent = getIntent();
+        String location = intent.getStringExtra("location");
+        mLocationTextView.setText("Here's a list of members of congress in " + location);
     }
 }
