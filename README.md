@@ -34,7 +34,9 @@ Politically engaged citizens.
   - [X] ArrayAdapter to display list of legislators
 - [X] Gather user input and pass to another activity
   - [X] EditText on MainActivity will pass user inputted state to LegislatorActivity
-- [ ] Validate forms
+- [ ] Validate forms - IN PROGRESS
+  - [ ] Use autocomplete, user needs to selected from predetermined array of states
+  - [ ] Add if/else to prevent user from submitting search without selecting a state
 - [x] Use ButterKnife to bind views
 - [x] Implement View.OnClickListener
 
@@ -61,7 +63,7 @@ Politically engaged citizens.
 - [ ] Publish to Google Play
 
 ## Known Bugs
-
+* AutoCompleteTextView. Currently, user is able to search for states from array. Not able to take the selection and capture as string to send as intent to LegislatorListArray.
 
 ## Support and contact details
 Questions? Concerns? Suggestions? Reach out to me via github: <https://github.com/GloriaFriesen>.
