@@ -28,6 +28,6 @@ public class LegislatorListActivity extends AppCompatActivity {
         mListView.setAdapter(adapter);
         Intent intent = getIntent();
         String state = intent.getStringExtra("state");
-        mStateTextView.setText("This is the state you selected " + state);
+        mStateTextView.setText("Here's a list of congress members in " + state);
     }
 }

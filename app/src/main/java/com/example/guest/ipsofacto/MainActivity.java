@@ -45,10 +45,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if(v == mSubmitLocationButton) {
-            Intent intent = new Intent(MainActivity.this, LegislatorListActivity.class);
             String state = mStateTextView.getText().toString();
-            intent.putExtra("state", state);
-            startActivity(intent);
+            if (state.length() == 0) {
+                mStateTextView.setError("Please select a state.");
+            } else {
+                Intent intent = new Intent(MainActivity.this, LegislatorListActivity.class);
+                intent.putExtra("state", state);
+                startActivity(intent);
+            }
         } else if (v == mStartAboutActivity) {
             Intent intent = new Intent(MainActivity.this, AboutActivity.class);
             startActivity(intent);
