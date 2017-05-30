@@ -16,7 +16,6 @@ public class LegislatorListActivity extends AppCompatActivity {
     private String[] phones = new String[] {"202-555-1234", "503-867-5309", "347-489-4608"};
 
     @Bind(R.id.listView) ListView mListView;
-    @Bind(R.id.locationTextView) TextView mLocationTextView;
     @Bind(R.id.stateTextView) TextView mStateTextView;
 
     @Override
@@ -28,10 +27,7 @@ public class LegislatorListActivity extends AppCompatActivity {
         LegislatorsArrayAdapter adapter = new LegislatorsArrayAdapter(this, android.R.layout.simple_list_item_1, names, parties, phones);
         mListView.setAdapter(adapter);
         Intent intent = getIntent();
-        String location = intent.getStringExtra("location");
         String state = intent.getStringExtra("state");
-        Log.v("LegislatorListActivity", location);
-        mLocationTextView.setText("Here's a list of members of congress in " + location);
         mStateTextView.setText("This is the state you selected " + state);
     }
 }

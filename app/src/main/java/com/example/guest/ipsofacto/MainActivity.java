@@ -21,8 +21,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Bind(R.id.submitLocationButton)
     Button mSubmitLocationButton;
-    @Bind(R.id.locationEditText)
-    EditText mLocationEditText;
     @Bind(R.id.startAboutActivity) Button mStartAboutActivity;
     @Bind(R.id.startContactActivity) Button mStartContactActivity;
     @Bind(R.id.stateTextView) AutoCompleteTextView mStateTextView;
@@ -36,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mSubmitLocationButton.setOnClickListener(this);
         mStartAboutActivity.setOnClickListener(this);
         mStartContactActivity.setOnClickListener(this);
-        mStateTextView.setOnClickListener(this);
+        mStateTextView.getOnItemSelectedListener();
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, states);
         mStateTextView.setAdapter(adapter);
@@ -47,20 +45,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if(v == mSubmitLocationButton) {
-            String location = mLocationEditText.getText().toString();
             Intent intent = new Intent(MainActivity.this, LegislatorListActivity.class);
-            intent.putExtra("location", location);
+            String state = mStateTextView.getText().toString();
+            intent.putExtra("state", state);
             startActivity(intent);
         } else if (v == mStartAboutActivity) {
             Intent intent = new Intent(MainActivity.this, AboutActivity.class);
             startActivity(intent);
         } else if (v == mStartContactActivity) {
             Intent intent = new Intent(MainActivity.this, ContactActivity.class);
-            startActivity(intent);
-        } else if (v == mStateTextView) {
-            String state = "Oregon";
-            Intent intent = new Intent(MainActivity.this, LegislatorListActivity.class);
-            intent.putExtra("state", state);
             startActivity(intent);
         }
     }

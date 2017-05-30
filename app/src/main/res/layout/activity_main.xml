@@ -13,14 +13,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
-        android:src="@drawable/background4"
+        android:src="@drawable/background3"
         tools:layout_editor_absoluteY="0dp"
         tools:layout_editor_absoluteX="0dp" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="Ipso Facto"
         android:textSize="36sp"
         app:layout_constraintTop_toTopOf="@+id/imageView"
@@ -47,24 +47,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp" />
 
-    <EditText
-        android:id="@+id/locationEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="68dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:ems="10"
-        android:hint="zipcode"
-        android:inputType="number"
-        android:textAlignment="center"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="63dp"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintHorizontal_bias="0.0" />
-
     <Button
         android:id="@+id/submitLocationButton"
         android:layout_width="0dp"
@@ -76,8 +58,9 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/locationEditText" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginBottom="256dp" />
 
     <!--buttons to link from main activity to about and contact activities, eventually make navigation drawer-->
     <Button
@@ -119,12 +102,22 @@
 
     <AutoCompleteTextView
         android:id="@+id/stateTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="State"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
         android:completionThreshold="1"
         android:dropDownHeight="wrap_content"
         android:dropDownWidth="match_parent"
-    />
+        android:hint="State"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/submitLocationButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>
