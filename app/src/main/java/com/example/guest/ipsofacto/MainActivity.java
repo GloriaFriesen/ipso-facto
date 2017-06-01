@@ -1,6 +1,7 @@
 package com.example.guest.ipsofacto;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,12 +25,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.startAboutActivity) Button mStartAboutActivity;
     @Bind(R.id.startContactActivity) Button mStartContactActivity;
     @Bind(R.id.stateTextView) AutoCompleteTextView mStateTextView;
+    @Bind(R.id.titleTextView) TextView mTitleTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+
+        Typeface sunlightFont = Typeface.createFromAsset(getAssets(), "fonts/sunlight.ttf");
+        mTitleTextView.setTypeface(sunlightFont);
 
         mSubmitLocationButton.setOnClickListener(this);
         mStartAboutActivity.setOnClickListener(this);
