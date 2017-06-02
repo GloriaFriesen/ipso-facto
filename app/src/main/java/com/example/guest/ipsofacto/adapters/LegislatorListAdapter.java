@@ -1,6 +1,7 @@
 package com.example.guest.ipsofacto.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,9 @@ import android.widget.TextView;
 
 import com.example.guest.ipsofacto.R;
 import com.example.guest.ipsofacto.models.Legislator;
+import com.example.guest.ipsofacto.ui.LegislatorDetailActivity;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -45,7 +49,7 @@ public class LegislatorListAdapter extends RecyclerView.Adapter<LegislatorListAd
         mLegislators = legislators;
     }
 
-    public class LegislatorViewHolder extends RecyclerView.ViewHolder {
+    public class LegislatorViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.nameTextView) TextView mNameTextView;
         @Bind(R.id.partyTextView) TextView mPartyTextView;
         @Bind(R.id.roleTextView) TextView mRoleTextView;
@@ -56,12 +60,22 @@ public class LegislatorListAdapter extends RecyclerView.Adapter<LegislatorListAd
             super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
+            itemView.setOnClickListener(this);
         }
 
         public void bindLegislator(Legislator legislator) {
             mNameTextView.setText(legislator.getName());
             mPartyTextView.setText(legislator.getParty());
             mRoleTextView.setText(legislator.getRole());
+        }
+
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getLayoutPosition();
+            Intent intent = new Intent(mContext, LegislatorDetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("legislators", Parcels.wrap(mLegislators));
+            mContext.startActivity(intent);
         }
     }
 }
