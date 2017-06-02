@@ -3,7 +3,7 @@
 #### _By Gloria Friesen_
 
 ### Congress Reference Mobile Application
-Current Version: 1.0 - 05.26.2017
+Current Version: 1.1 - 06.02.2017
 
 ### Description
 
@@ -42,8 +42,8 @@ Politically engaged citizens.
 - [X] Include custom typeface
 
 #### Week 2:
-- [ ] Implement OkHttp to retrieve data from a backend
-  - [ ] Use ProPublica API to retrieve legislator data
+- [X] Implement OkHttp to retrieve data from a backend
+  - [X] Use ProPublica API to retrieve legislator data
 - [ ] Create data model (Legislator.java)
     - [ ] Name
     - [ ] Party
@@ -77,7 +77,9 @@ Politically engaged citizens.
 - [ ] Publish to Google Play
 
 ## Known Bugs
-None that I know of. It's a basic app at the moment, but it is working as intended. I look forward to adding more features and complexity over the coming weeks.
+* ProPublica API takes state abbreviation as query but I am currently getting the full state name from the user, will need to implement code to convert before sending API request. Currently, hard coded string is in Legislator Service.
+* ProPublica API searches by chamber (house vs senate), currently hard coded to return senators only, need to add user input
+* ProPublica searches for representatives by district, need to find that for the user
 
 ## Support and contact details
 Questions? Concerns? Suggestions? Reach out to me via github: <https://github.com/GloriaFriesen>.

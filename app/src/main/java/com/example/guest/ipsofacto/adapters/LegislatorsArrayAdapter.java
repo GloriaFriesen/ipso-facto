@@ -1,4 +1,4 @@
-package com.example.guest.ipsofacto;
+package com.example.guest.ipsofacto.adapters;
 
 import android.content.Context;
 import android.widget.ArrayAdapter;

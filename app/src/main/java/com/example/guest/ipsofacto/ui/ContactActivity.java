@@ -1,7 +1,9 @@
-package com.example.guest.ipsofacto;
+package com.example.guest.ipsofacto.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.guest.ipsofacto.R;
 
 public class ContactActivity extends AppCompatActivity {
 

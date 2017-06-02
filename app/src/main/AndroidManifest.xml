@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.guest.ipsofacto">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -10,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.MainActivity"
             android:windowSoftInputMode="stateHidden"
             >
             <intent-filter>
@@ -20,24 +21,24 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AboutActivity">
+            android:name=".ui.AboutActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.guest.ipsofacto.MainActivity">
+                android:value="com.example.guest.ipsofacto.ui.MainActivity">
             </meta-data>
         </activity>
         <activity
-            android:name=".ContactActivity">
+            android:name=".ui.ContactActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.guest.ipsofacto.MainActivity">
+                android:value="com.example.guest.ipsofacto.ui.MainActivity">
             </meta-data>
         </activity>
         <activity
-            android:name=".LegislatorListActivity">
+            android:name=".ui.LegislatorListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.guest.ipsofacto.MainActivity">
+                android:value="com.example.guest.ipsofacto.ui.MainActivity">
             </meta-data>
         </activity>
     </application>

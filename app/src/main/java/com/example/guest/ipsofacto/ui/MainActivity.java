@@ -1,16 +1,16 @@
-package com.example.guest.ipsofacto;
+package com.example.guest.ipsofacto.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
+
+import com.example.guest.ipsofacto.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
