@@ -39,14 +39,19 @@ Politically engaged citizens.
   - [X] Add if/else to prevent user from submitting search without selecting a state
 - [x] Use ButterKnife to bind views
 - [x] Implement View.OnClickListener
+- [X] Include custom typeface
 
 #### Week 2:
 - [ ] Implement OkHttp to retrieve data from a backend
   - [ ] Use ProPublica API to retrieve legislator data
-- [ ] Create data model
+- [ ] Create data model (Legislator.java)
+    - [ ] Name
+    - [ ] Party
 - [ ] Display list of information using a RecyclerView
 - [ ] Use fragments and PageAdapter to swipe through views
 - [ ] Incorporate implicit intent
+    - [ ] Phone call
+    - [ ] Email
 
 #### Week 3:
 - [ ] Firebase user authentication
