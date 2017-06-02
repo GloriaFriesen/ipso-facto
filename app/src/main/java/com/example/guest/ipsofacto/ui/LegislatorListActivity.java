@@ -39,11 +39,8 @@ public class LegislatorListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_legislator_list);
         ButterKnife.bind(this);
 
-//        LegislatorsArrayAdapter adapter = new LegislatorsArrayAdapter(this, android.R.layout.simple_list_item_1, names, parties, phones);
-//        mListView.setAdapter(adapter);
         Intent intent = getIntent();
         String state = intent.getStringExtra("state");
-//        mStateTextView.setText("Here's a list of congress members in " + state);
 
         getLegislators(state);
     }
