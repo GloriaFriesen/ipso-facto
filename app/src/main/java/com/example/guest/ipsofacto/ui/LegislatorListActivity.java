@@ -3,10 +3,13 @@ package com.example.guest.ipsofacto.ui;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.guest.ipsofacto.adapters.LegislatorListAdapter;
 import com.example.guest.ipsofacto.adapters.LegislatorsArrayAdapter;
 import com.example.guest.ipsofacto.R;
 import com.example.guest.ipsofacto.models.Legislator;
@@ -26,9 +29,9 @@ public class LegislatorListActivity extends AppCompatActivity {
     private String[] parties = new String[] {"Democrat", "Independent", "Republican"};
     private String[] phones = new String[] {"202-555-1234", "503-867-5309", "347-489-4608"};
     public ArrayList<Legislator> mLegislators = new ArrayList<>();
+    private LegislatorListAdapter mAdapter;
 
-    @Bind(R.id.listView) ListView mListView;
-    @Bind(R.id.stateTextView) TextView mStateTextView;
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,11 +39,11 @@ public class LegislatorListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_legislator_list);
         ButterKnife.bind(this);
 
-        LegislatorsArrayAdapter adapter = new LegislatorsArrayAdapter(this, android.R.layout.simple_list_item_1, names, parties, phones);
-        mListView.setAdapter(adapter);
+//        LegislatorsArrayAdapter adapter = new LegislatorsArrayAdapter(this, android.R.layout.simple_list_item_1, names, parties, phones);
+//        mListView.setAdapter(adapter);
         Intent intent = getIntent();
         String state = intent.getStringExtra("state");
-        mStateTextView.setText("Here's a list of congress members in " + state);
+//        mStateTextView.setText("Here's a list of congress members in " + state);
 
         getLegislators(state);
     }
@@ -61,7 +64,11 @@ public class LegislatorListActivity extends AppCompatActivity {
                 LegislatorListActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-
+                        mAdapter = new LegislatorListAdapter(getApplicationContext(), mLegislators);
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(LegislatorListActivity.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
                     }
                 });
             }
