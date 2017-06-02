@@ -47,8 +47,17 @@ Politically engaged citizens.
 - [ ] Create data model (Legislator.java)
     - [ ] Name
     - [ ] Party
+    - [ ] House of Congress
+    - [ ] Photo
+    - [ ] Email
+    - [ ] Phone
 - [ ] Display list of information using a RecyclerView
+    - [ ] Display list of legislators in state from API response
+    - [ ] Include name, photo (if available), party, and house
+    - [ ] Clickable, will send to detail view of that legislator
 - [ ] Use fragments and PageAdapter to swipe through views
+    - [ ] Display complete legislator information
+    - [ ] Phone and email will be clickable to initiate implicit intent
 - [ ] Incorporate implicit intent
     - [ ] Phone call
     - [ ] Email
