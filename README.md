@@ -44,13 +44,10 @@ Politically engaged citizens.
 #### Week 2:
 - [X] Implement OkHttp to retrieve data from a backend
   - [X] Use ProPublica API to retrieve legislator data
-- [ ] Create data model (Legislator.java)
+- [X] Create data model (Legislator.java)
     - [ ] Name
     - [ ] Party
-    - [ ] House of Congress
-    - [ ] Photo
-    - [ ] Email
-    - [ ] Phone
+    - [ ] Role
 - [ ] Display list of information using a RecyclerView
     - [ ] Display list of legislators in state from API response
     - [ ] Include name, photo (if available), party, and house
