@@ -9,9 +9,11 @@ import android.widget.TextView;
 
 import com.example.guest.ipsofacto.adapters.LegislatorsArrayAdapter;
 import com.example.guest.ipsofacto.R;
+import com.example.guest.ipsofacto.models.Legislator;
 import com.example.guest.ipsofacto.services.LegislatorService;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -23,6 +25,7 @@ public class LegislatorListActivity extends AppCompatActivity {
     private String[] names = new String[] {"Abby", "Jack", "Teddy"};
     private String[] parties = new String[] {"Democrat", "Independent", "Republican"};
     private String[] phones = new String[] {"202-555-1234", "503-867-5309", "347-489-4608"};
+    public ArrayList<Legislator> mLegislators = new ArrayList<>();
 
     @Bind(R.id.listView) ListView mListView;
     @Bind(R.id.stateTextView) TextView mStateTextView;
@@ -53,12 +56,14 @@ public class LegislatorListActivity extends AppCompatActivity {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    String jsonData = response.body().string();
-                    Log.v("response", jsonData);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                mLegislators = legislatorService.processResults(response);
+
+                LegislatorListActivity.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                    }
+                });
             }
         });
     }

@@ -9,7 +9,7 @@ public class Legislator {
     private String mRole;
     private String mParty;
 
-    public Legislator() {}
+//    public Legislator() {}
 
     public Legislator(String name, String role, String party) {
         this.mName = name;
