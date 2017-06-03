@@ -163,7 +163,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="House"
-            android:tag="House"
+            android:tag="house"
             tools:layout_editor_absoluteY="358dp"
             android:layout_marginRight="7dp"
             app:layout_constraintRight_toRightOf="parent"
@@ -175,7 +175,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Senate"
-            android:tag="Senate"
+            android:tag="senate"
             tools:layout_editor_absoluteY="358dp"
             android:layout_marginLeft="8dp"
             app:layout_constraintLeft_toLeftOf="@+id/guideline2" />

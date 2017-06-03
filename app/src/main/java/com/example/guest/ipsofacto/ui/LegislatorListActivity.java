@@ -41,13 +41,14 @@ public class LegislatorListActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String state = intent.getStringExtra("state");
+        String chamber = intent.getStringExtra("chamber");
 
-        getLegislators(state);
+        getLegislators(state, chamber);
     }
 
-    private void getLegislators(String state) {
+    private void getLegislators(String state, String chamber) {
         final LegislatorService legislatorService = new LegislatorService();
-        legislatorService.findLegislators(state, new Callback() {
+        legislatorService.findLegislators(state, chamber, new Callback() {
 
             @Override
             public void onFailure(Call call, IOException e) {

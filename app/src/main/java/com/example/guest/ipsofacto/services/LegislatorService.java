@@ -25,11 +25,12 @@ import okhttp3.Response;
 
 public class LegislatorService {
 
-    public static void findLegislators(String state, Callback callback) {
+    public static void findLegislators(String state, String chamber, Callback callback) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.BASE_URL).newBuilder();
+        urlBuilder.addPathSegment(chamber);
         urlBuilder.addPathSegment(state);
         urlBuilder.addPathSegment(Constants.CURRENT_JSON_PATH);
         String url = urlBuilder.build().toString();
