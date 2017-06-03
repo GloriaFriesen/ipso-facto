@@ -50,8 +50,8 @@ Politically engaged citizens.
     - [X] Role
 - [ ] Display list of information using a RecyclerView
     - [ ] Display list of legislators in state from API response --IN PROGRESS--
-       - [ ] Currently, able to display list of senators from Oregon
-       - [ ] Need to implement logic to take full state name from user input and convert to state abbreviation to plug into API
+       - [X] Currently, able to display list of senators from user's inputted state
+       - [X] Need to implement logic to take full state name from user input and convert to state abbreviation to plug into API
        - [ ] Need to add functionality for user to choose search between senators and representatives
        - [ ] If searching by representative, need district for API search
     - [X] Include name, party, and role
@@ -81,7 +81,6 @@ Politically engaged citizens.
 - [ ] Publish to Google Play
 
 ## Known Bugs
-* ProPublica API takes state abbreviation as query but I am currently getting the full state name from the user, will need to implement code to convert before sending API request. Currently, hard coded string is in Legislator Service.
 * ProPublica API searches by chamber (house vs senate), currently hard coded to return senators only, need to add user input
 * ProPublica searches for representatives by district, need to find that for the user
 

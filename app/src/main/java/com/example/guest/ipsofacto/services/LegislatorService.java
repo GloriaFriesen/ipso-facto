@@ -30,7 +30,7 @@ public class LegislatorService {
                 .build();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.BASE_URL).newBuilder();
-        urlBuilder.addPathSegment("OR");
+        urlBuilder.addPathSegment(state);
         urlBuilder.addPathSegment(Constants.CURRENT_JSON_PATH);
         String url = urlBuilder.build().toString();
 
