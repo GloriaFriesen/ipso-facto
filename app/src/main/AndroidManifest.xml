@@ -24,19 +24,23 @@
         <activity android:name=".ui.AboutActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.guest.ipsofacto.ui.MainActivity"></meta-data>
+                android:value="com.example.guest.ipsofacto.ui.MainActivity"/>
         </activity>
         <activity android:name=".ui.ContactActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.guest.ipsofacto.ui.MainActivity"></meta-data>
+                android:value="com.example.guest.ipsofacto.ui.MainActivity"/>
         </activity>
         <activity android:name=".ui.LegislatorListActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.guest.ipsofacto.ui.MainActivity"></meta-data>
+                android:value="com.example.guest.ipsofacto.ui.MainActivity"/>
         </activity>
-        <activity android:name=".ui.LegislatorDetailActivity"></activity>
+        <activity android:name=".ui.LegislatorDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.guest.ipsofacto.ui.LegislatorListActivity"/>
+        </activity>
     </application>
 
 </manifest>
