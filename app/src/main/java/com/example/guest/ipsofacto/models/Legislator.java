@@ -25,6 +25,13 @@ public class Legislator {
     }
 
     public String getParty() {
+        if (mParty.equals("D")) {
+            mParty = "Democratic";
+        } else if (mParty.equals("R")) {
+            mParty = "Republican";
+        } else if (mParty.equals("I")) {
+            mParty = "Independent";
+        }
         return mParty;
     }
 }
