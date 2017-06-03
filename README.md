@@ -48,12 +48,11 @@ Politically engaged citizens.
     - [X] Name
     - [X] Party
     - [X] Role
-- [ ] Display list of information using a RecyclerView
-    - [ ] Display list of legislators in state from API response --IN PROGRESS--
+- [X] Display list of information using a RecyclerView
+    - [X] Display list of legislators in state from API response
        - [X] Currently, able to display list of senators from user's inputted state
        - [X] Need to implement logic to take full state name from user input and convert to state abbreviation to plug into API
-       - [ ] Need to add functionality for user to choose search between senators and representatives
-       - [ ] If searching by representative, need district for API search
+       - [X] Need to add functionality for user to choose search between senators and representatives
     - [X] Include name, party, and role
     - [X] Clickable, will send to detail view of that legislator
 - [ ] Use fragments and PageAdapter to swipe through views
@@ -81,8 +80,7 @@ Politically engaged citizens.
 - [ ] Publish to Google Play
 
 ## Known Bugs
-* ProPublica API searches by chamber (house vs senate), currently hard coded to return senators only, need to add user input
-* ProPublica searches for representatives by district, need to find that for the user
+* Placeholder text in LegislatorDetailFragment, need 2nd api call to populate
 
 ## Support and contact details
 Questions? Concerns? Suggestions? Reach out to me via github: <https://github.com/GloriaFriesen>.
