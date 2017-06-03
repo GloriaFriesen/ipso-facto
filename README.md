@@ -45,17 +45,24 @@ Politically engaged citizens.
 - [X] Implement OkHttp to retrieve data from a backend
   - [X] Use ProPublica API to retrieve legislator data
 - [X] Create data model (Legislator.java)
-    - [ ] Name
-    - [ ] Party
-    - [ ] Role
+    - [X] Name
+    - [X] Party
+    - [X] Role
 - [ ] Display list of information using a RecyclerView
-    - [ ] Display list of legislators in state from API response
-    - [ ] Include name, photo (if available), party, and house
-    - [ ] Clickable, will send to detail view of that legislator
+    - [ ] Display list of legislators in state from API response --IN PROGRESS--
+       - [ ] Currently, able to display list of senators from Oregon
+       - [ ] Need to implement logic to take full state name from user input and convert to state abbreviation to plug into API
+       - [ ] Need to add functionality for user to choose search between senators and representatives
+       - [ ] If searching by representative, need district for API search
+    - [X] Include name, party, and role
+    - [X] Clickable, will send to detail view of that legislator
 - [ ] Use fragments and PageAdapter to swipe through views
-    - [ ] Display complete legislator information
+    - [ ] Display complete legislator information --IN PROGRESS--
+        - [X] PageAdapter is in place, displays initial API response with name, party, and role
+        - [ ] Need to implement 2nd API call using legislator id to obtain more detailed information
     - [ ] Phone and email will be clickable to initiate implicit intent
 - [ ] Incorporate implicit intent
+    - [ ] Need to implement 2nd API call using legislator id to obtain more detailed information
     - [ ] Phone call
     - [ ] Email
 
