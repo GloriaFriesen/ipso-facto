@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,14 +26,16 @@ import java.util.Map;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener {
     Map<String, String> states = new HashMap<>();
+    String chamber;
 
     @Bind(R.id.submitLocationButton) Button mSubmitLocationButton;
     @Bind(R.id.startAboutActivity) Button mStartAboutActivity;
     @Bind(R.id.startContactActivity) Button mStartContactActivity;
     @Bind(R.id.stateTextView) AutoCompleteTextView mStateTextView;
     @Bind(R.id.titleTextView) TextView mTitleTextView;
+    @Bind(R.id.radioGroup) RadioGroup mRadioGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mStartAboutActivity.setOnClickListener(this);
         mStartContactActivity.setOnClickListener(this);
         mStateTextView.getOnItemSelectedListener();
+        mRadioGroup.setOnCheckedChangeListener(this);
 
         states = processStates();
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, states.keySet().toArray());
@@ -59,10 +64,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (isInternetAvailable()) {
                 String state = mStateTextView.getText().toString();
                 if (state.length() == 0) {
-                    mStateTextView.setError("Please select a state.");
+                    Toast.makeText(this, "Please select a state.", Toast.LENGTH_SHORT).show();
+                } else if (chamber == null) {
+                    Toast.makeText(this, "Please select a chamber.", Toast.LENGTH_SHORT).show();
                 } else {
                     Intent intent = new Intent(MainActivity.this, LegislatorListActivity.class);
                     intent.putExtra("state", states.get(state));
+                    intent.putExtra("chamber", chamber);
                     startActivity(intent);
                 }
             } else {
@@ -75,6 +83,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, ContactActivity.class);
             startActivity(intent);
         }
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup radioGroup, @IdRes int i) {
+        chamber = radioGroup.findViewById(i).getTag().toString();
     }
 
     private boolean isInternetAvailable() {

@@ -159,10 +159,11 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintVertical_bias="0.581">
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/House"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="House"
+            android:tag="House"
             tools:layout_editor_absoluteY="358dp"
             android:layout_marginRight="7dp"
             app:layout_constraintRight_toRightOf="parent"
@@ -170,10 +171,11 @@
             android:layout_marginLeft="8dp" />
 
         <RadioButton
-            android:id="@+id/radioButton2"
+            android:id="@+id/Senate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Senate"
+            android:tag="Senate"
             tools:layout_editor_absoluteY="358dp"
             android:layout_marginLeft="8dp"
             app:layout_constraintLeft_toLeftOf="@+id/guideline2" />
