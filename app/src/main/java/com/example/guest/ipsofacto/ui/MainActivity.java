@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
@@ -16,16 +17,17 @@ import android.widget.Toast;
 
 import com.example.guest.ipsofacto.R;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private static final String [] states = new String[] {
-            "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
-    };
+    Map<String, String> states = new HashMap<>();
 
-    @Bind(R.id.submitLocationButton)
-    Button mSubmitLocationButton;
+    @Bind(R.id.submitLocationButton) Button mSubmitLocationButton;
     @Bind(R.id.startAboutActivity) Button mStartAboutActivity;
     @Bind(R.id.startContactActivity) Button mStartContactActivity;
     @Bind(R.id.stateTextView) AutoCompleteTextView mStateTextView;
@@ -45,10 +47,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mStartContactActivity.setOnClickListener(this);
         mStateTextView.getOnItemSelectedListener();
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, states);
+        states = processStates();
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, states.keySet().toArray());
         mStateTextView.setAdapter(adapter);
     }
-
 
 
     @Override
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     mStateTextView.setError("Please select a state.");
                 } else {
                     Intent intent = new Intent(MainActivity.this, LegislatorListActivity.class);
-                    intent.putExtra("state", state);
+                    intent.putExtra("state", states.get(state));
                     startActivity(intent);
                 }
             } else {
@@ -79,5 +81,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
         return networkInfo != null && networkInfo.isConnected();
+    }
+
+    private Map<String, String> processStates() {
+        String[] stateNames = getResources().getStringArray(R.array.states);
+        String[] stateAbbreviations = getResources().getStringArray(R.array.abbreviatedStates);
+        for (int i = 0; i < stateNames.length; i++) {
+            states.put(stateNames[i], stateAbbreviations[i]);
+        }
+        return states;
     }
 }
