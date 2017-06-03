@@ -1,7 +1,10 @@
 package com.example.guest.ipsofacto.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.guest.ipsofacto.R;
 
@@ -50,13 +54,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if(v == mSubmitLocationButton) {
-            String state = mStateTextView.getText().toString();
-            if (state.length() == 0) {
-                mStateTextView.setError("Please select a state.");
+            if (isInternetAvailable()) {
+                String state = mStateTextView.getText().toString();
+                if (state.length() == 0) {
+                    mStateTextView.setError("Please select a state.");
+                } else {
+                    Intent intent = new Intent(MainActivity.this, LegislatorListActivity.class);
+                    intent.putExtra("state", state);
+                    startActivity(intent);
+                }
             } else {
-                Intent intent = new Intent(MainActivity.this, LegislatorListActivity.class);
-                intent.putExtra("state", state);
-                startActivity(intent);
+                Toast.makeText(this, "Please check your internet connection and try again.", Toast.LENGTH_LONG).show();
             }
         } else if (v == mStartAboutActivity) {
             Intent intent = new Intent(MainActivity.this, AboutActivity.class);
@@ -65,5 +73,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, ContactActivity.class);
             startActivity(intent);
         }
+    }
+
+    private boolean isInternetAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+        return networkInfo != null && networkInfo.isConnected();
     }
 }
