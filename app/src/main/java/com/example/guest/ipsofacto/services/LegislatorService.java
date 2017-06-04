@@ -59,8 +59,9 @@ public class LegislatorService {
                     String name = legislatorJSON.getString("name");
                     String role = legislatorJSON.getString("role");
                     String party = legislatorJSON.getString("party");
+                    String url = legislatorJSON.getString("api_url");
 
-                    Legislator legislator = new Legislator(name, role, party);
+                    Legislator legislator = new Legislator(name, role, party, url);
                     legislators.add(legislator);
                 }
             }
@@ -69,7 +70,48 @@ public class LegislatorService {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        return legislators;
+    }
 
+    public static void getDetailLegislator(String url, Callback callback) {
+        OkHttpClient client = new OkHttpClient.Builder()
+                .build();
+
+        Request request = new Request.Builder()
+                .url(url)
+                .header(Constants.HEADER, Constants.API_KEY)
+                .build();
+
+        Log.v("url", url);
+
+        Call call = client.newCall(request);
+        call.enqueue(callback);
+    }
+
+    public ArrayList<Legislator> processDetailResults(Response response) {
+        ArrayList<Legislator> legislators = new ArrayList<>();
+
+        try {
+            String jsonData = response.body().string();
+            if (response.isSuccessful()) {
+                JSONObject responseJSON = new JSONObject(jsonData);
+                JSONArray legislatorListJSON = responseJSON.getJSONArray("results");
+                for (int i = 0; i < legislatorListJSON.length(); i++) {
+                    JSONObject legislatorJSON = legislatorListJSON.getJSONObject(i);
+                    String name = legislatorJSON.getString("name");
+                    String role = legislatorJSON.getString("role");
+                    String party = legislatorJSON.getString("party");
+                    String url = legislatorJSON.getString("api_url");
+
+                    Legislator legislator = new Legislator(name, role, party, url);
+                    legislators.add(legislator);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         return legislators;
     }
 }
