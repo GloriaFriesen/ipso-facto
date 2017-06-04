@@ -1,7 +1,5 @@
 package com.example.guest.ipsofacto.services;
 
-import android.util.Log;
-
 import com.example.guest.ipsofacto.Constants;
 import com.example.guest.ipsofacto.models.Legislator;
 
@@ -19,9 +17,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-/**
- * Created by Guest on 6/2/17.
- */
 
 public class LegislatorService {
 
@@ -39,8 +34,6 @@ public class LegislatorService {
                 .url(url)
                 .header(Constants.HEADER, Constants.API_KEY)
                 .build();
-
-        Log.v("url", url);
 
         Call call = client.newCall(request);
         call.enqueue(callback);
@@ -82,8 +75,6 @@ public class LegislatorService {
                 .header(Constants.HEADER, Constants.API_KEY)
                 .build();
 
-        Log.v("url", url);
-
         Call call = client.newCall(request);
         call.enqueue(callback);
     }
@@ -109,14 +100,12 @@ public class LegislatorService {
                 String votePercent = legislatorDetailJSON.getString("votes_with_party_pct");
 
                 detailLegislator = new Legislator(legislator.getName(), legislator.getRole(), legislator.getParty(), legislator.getDetailURL(), phone, website, timesWebsite, startDate, votePercent);
-                Log.v("detail legislator", detailLegislator.toString());
             }
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.v("detail legislator", detailLegislator.toString());
         return detailLegislator;
     }
 }

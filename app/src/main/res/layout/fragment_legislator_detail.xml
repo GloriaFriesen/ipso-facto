@@ -54,6 +54,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:orientation="vertical"
+                android:layout_centerInParent="true"
                 android:paddingLeft="30dp"
                 android:paddingRight="30dp"
                 android:paddingTop="20dp">

@@ -1,6 +1,8 @@
 package com.example.guest.ipsofacto.ui;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.guest.ipsofacto.R;
 import com.example.guest.ipsofacto.adapters.LegislatorListAdapter;
@@ -27,7 +30,7 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 
-public class LegislatorDetailFragment extends Fragment {
+public class LegislatorDetailFragment extends Fragment implements View.OnClickListener{
     @Bind(R.id.detailNameTextView) TextView mNameView;
     @Bind(R.id.detailPartyTextView) TextView mPartyView;
     @Bind(R.id.detailPhoneTextView) TextView mPhoneView;
@@ -68,7 +71,35 @@ public class LegislatorDetailFragment extends Fragment {
         mNameView.setText(mLegislator.getName());
         mPartyView.setText(mLegislator.getParty());
 
+        mPhoneView.setOnClickListener(this);
+        mTimesURLView.setOnClickListener(this);
+        mWebsiteView.setOnClickListener(this);
+
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == mPhoneView) {
+            Intent phoneIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + mLegislator.getPhone()));
+            try {
+                startActivity(phoneIntent);
+            } catch (Exception exception){
+                Toast.makeText(v.getContext(), "This device doesn't seem to have a phone.", Toast.LENGTH_SHORT).show();
+            }
+        }
+        if (v == mTimesURLView) {
+            if (!mLegislator.getTimesWebsite().equals("None listed")) {
+                Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mLegislator.getTimesWebsite()));
+                startActivity(webIntent);
+            }
+        }
+        if (v == mWebsiteView) {
+            if (!mLegislator.getWebsite().equals("")) {
+                Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mLegislator.getWebsite()));
+                startActivity(webIntent);
+            }
+        }
     }
 
     private void getDetailLegislator(final Legislator legislator) {
