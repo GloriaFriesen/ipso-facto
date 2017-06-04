@@ -55,15 +55,16 @@ Politically engaged citizens.
        - [X] Need to add functionality for user to choose search between senators and representatives
     - [X] Include name, party, and role
     - [X] Clickable, will send to detail view of that legislator
-- [ ] Use fragments and PageAdapter to swipe through views
-    - [ ] Display complete legislator information --IN PROGRESS--
+- [X] Use fragments and PageAdapter to swipe through views
+    - [X] Display complete legislator information
         - [X] PageAdapter is in place, displays initial API response with name, party, and role
-        - [ ] Need to implement 2nd API call using legislator id to obtain more detailed information
-    - [ ] Phone and email will be clickable to initiate implicit intent
-- [ ] Incorporate implicit intent
-    - [ ] Need to implement 2nd API call using legislator id to obtain more detailed information
-    - [ ] Phone call
-    - [ ] Email
+        - [X] Need to implement 2nd API call using legislator id to obtain more detailed information
+    - [X] Phone and websites will be clickable to initiate implicit intent
+- [X] Incorporate implicit intent
+    - [X] Need to implement 2nd API call using legislator id to obtain more detailed information
+    - [X] Phone call
+    - [X] Times Website
+    - [X] Gov website
 
 #### Week 3:
 - [ ] Firebase user authentication
@@ -80,7 +81,7 @@ Politically engaged citizens.
 - [ ] Publish to Google Play
 
 ## Known Bugs
-* Placeholder text in LegislatorDetailFragment, need 2nd api call to populate
+* Layout is far from ideal, need to spend time improving especially across different screen sizes.
 
 ## Support and contact details
 Questions? Concerns? Suggestions? Reach out to me via github: <https://github.com/GloriaFriesen>.
