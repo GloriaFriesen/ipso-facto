@@ -59,7 +59,7 @@ public class LegislatorService {
                     String name = legislatorJSON.getString("name");
                     String role = legislatorJSON.getString("role");
                     String party = legislatorJSON.getString("party");
-                    String url = legislatorJSON.getString("api_url");
+                    String url = legislatorJSON.getString("api_uri");
 
                     Legislator legislator = new Legislator(name, role, party, url);
                     legislators.add(legislator);
@@ -73,7 +73,7 @@ public class LegislatorService {
         return legislators;
     }
 
-    public static void getDetailLegislator(String url, Callback callback) {
+    public static void findDetailLegislator(String url, Callback callback) {
         OkHttpClient client = new OkHttpClient.Builder()
                 .build();
 
@@ -88,30 +88,35 @@ public class LegislatorService {
         call.enqueue(callback);
     }
 
-    public ArrayList<Legislator> processDetailResults(Response response) {
-        ArrayList<Legislator> legislators = new ArrayList<>();
-
+    public Legislator processDetailResults(Legislator legislator, Response response) {
+        Legislator detailLegislator = new Legislator();
         try {
             String jsonData = response.body().string();
             if (response.isSuccessful()) {
                 JSONObject responseJSON = new JSONObject(jsonData);
-                JSONArray legislatorListJSON = responseJSON.getJSONArray("results");
-                for (int i = 0; i < legislatorListJSON.length(); i++) {
-                    JSONObject legislatorJSON = legislatorListJSON.getJSONObject(i);
-                    String name = legislatorJSON.getString("name");
-                    String role = legislatorJSON.getString("role");
-                    String party = legislatorJSON.getString("party");
-                    String url = legislatorJSON.getString("api_url");
 
-                    Legislator legislator = new Legislator(name, role, party, url);
-                    legislators.add(legislator);
+                JSONArray resultsJSON = responseJSON.getJSONArray("results");
+                JSONObject legislatorJSON = resultsJSON.getJSONObject(0);
+                String website = legislatorJSON.getString("url");
+                String timesWebsite = legislatorJSON.getString("times_topics_url");
+                if (timesWebsite.equals("")) {
+                    timesWebsite = "None listed";
                 }
+                JSONArray rolesJSON = legislatorJSON.getJSONArray("roles");
+                JSONObject legislatorDetailJSON = rolesJSON.getJSONObject(0);
+                String phone = legislatorDetailJSON.getString("phone");
+                String startDate = legislatorDetailJSON.getString("start_date");
+                String votePercent = legislatorDetailJSON.getString("votes_with_party_pct");
+
+                detailLegislator = new Legislator(legislator.getName(), legislator.getRole(), legislator.getParty(), legislator.getDetailURL(), phone, website, timesWebsite, startDate, votePercent);
+                Log.v("detail legislator", detailLegislator.toString());
             }
         } catch (IOException e) {
             e.printStackTrace();
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return legislators;
+        Log.v("detail legislator", detailLegislator.toString());
+        return detailLegislator;
     }
 }
