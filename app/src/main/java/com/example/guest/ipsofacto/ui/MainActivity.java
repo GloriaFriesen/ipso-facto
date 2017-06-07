@@ -43,8 +43,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        Typeface sunlightFont = Typeface.createFromAsset(getAssets(), "fonts/sunlight.ttf");
-        mTitleTextView.setTypeface(sunlightFont);
+        Typeface titleFont = Typeface.createFromAsset(getAssets(), "fonts/juice.ttf");
+        mTitleTextView.setTypeface(titleFont);
 
         mSubmitLocationButton.setOnClickListener(this);
         mStartAboutActivity.setOnClickListener(this);
