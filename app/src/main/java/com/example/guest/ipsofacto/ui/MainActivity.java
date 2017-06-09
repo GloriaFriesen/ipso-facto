@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +25,7 @@ import android.widget.Toast;
 
 import com.example.guest.ipsofacto.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,6 +36,8 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener, AdapterView.OnItemClickListener {
     Map<String, String> states = new HashMap<>();
     String chamber;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Bind(R.id.submitLocationButton) Button mSubmitLocationButton;
     @Bind(R.id.stateTextView) AutoCompleteTextView mStateTextView;
@@ -47,6 +51,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    getSupportActionBar().setTitle("Welcome, " + user.getDisplayName() + ".");
+                } else {
+
+                }
+            }
+        };
+
         Typeface titleFont = Typeface.createFromAsset(getAssets(), "fonts/juice.ttf");
         mTitleTextView.setTypeface(titleFont);
 
@@ -59,6 +76,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mStateTextView.setAdapter(adapter);
         mStateTextView.setOnItemClickListener(this);
         mSavedLegislatorButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
     }
 
 
