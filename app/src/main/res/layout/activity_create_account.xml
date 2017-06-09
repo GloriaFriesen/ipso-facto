@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" Create Account"
+        android:text=" Register"
         android:textSize="30dp"
         android:textStyle="bold"
         android:layout_above="@+id/linearLayout"
@@ -110,7 +110,7 @@
             android:textStyle="bold"
             android:textSize="24sp"
             android:drawableLeft="@drawable/ic_insert_emoticon_white_24dp"
-            android:text=" Existing Account?"
+            android:text=" Been Here Before?"
             android:id="@+id/loginTextView"
             android:layout_gravity="center_horizontal" />
 
