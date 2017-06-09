@@ -41,7 +41,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.guest.ipsofacto.ui.MainActivity" />
         </activity>
-        <activity android:name=".ui.SavedLegislatorListActivity"></activity>
+        <activity android:name=".ui.SavedLegislatorListActivity" />
+        <activity android:name=".ui.CreateAccountActivity"></activity>
     </application>
 
 </manifest>
