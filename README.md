@@ -72,8 +72,8 @@ Politically engaged citizens.
     - [ ] Register screen
 - [ ] Save and retrieve data using Firebase
 - [ ] Firebase-RecyclerAdapter to display from database
-    - [ ] Allow users to 'favorite' a legislator
-    - [X] Retrieve list from database
+    - [X] Allow users to 'favorite' a legislator
+    - [ ] Retrieve list from database
 - [ ] Use SharedPreferences to save an important piece of data in your application
 - [ ] Use progress dialog to inform users of login status
 
