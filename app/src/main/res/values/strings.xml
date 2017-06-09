@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">IpsoFacto</string>
+    <string name="app_name">Ipso Facto</string>
     <string-array name="states">
         <item>Alabama</item>
         <item>Alaska</item>
