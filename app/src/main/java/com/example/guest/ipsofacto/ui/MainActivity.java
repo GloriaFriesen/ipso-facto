@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.stateTextView) AutoCompleteTextView mStateTextView;
     @Bind(R.id.titleTextView) TextView mTitleTextView;
     @Bind(R.id.radioGroup) RadioGroup mRadioGroup;
+    @Bind(R.id.savedLegislatorButton) Button mSavedLegislatorButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_dropdown_item_1line, states.keySet().toArray());
         mStateTextView.setAdapter(adapter);
         mStateTextView.setOnItemClickListener(this);
+        mSavedLegislatorButton.setOnClickListener(this);
     }
 
 
@@ -82,6 +84,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         } else if (v == mStartContactActivity) {
             Intent intent = new Intent(MainActivity.this, ContactActivity.class);
+            startActivity(intent);
+        } else if (v == mSavedLegislatorButton) {
+            Intent intent = new Intent(MainActivity.this, SavedLegislatorListActivity.class);
             startActivity(intent);
         }
     }
