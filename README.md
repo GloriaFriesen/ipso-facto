@@ -3,7 +3,7 @@
 #### _By Gloria Friesen_
 
 ### Congress Reference Mobile Application
-Current Version: 1.1 - 06.02.2017
+Current Version: 1.2 - 06.09.2017
 
 ### Description
 
@@ -68,11 +68,13 @@ Politically engaged citizens.
 
 #### Week 3:
 - [ ] Firebase user authentication
+    - [ ] Sign in screen
+    - [ ] Register screen
 - [ ] Save and retrieve data using Firebase
 - [ ] Firebase-RecyclerAdapter to display from database
+    - [ ] Allow users to 'favorite' a legislator and retrieve list from database
 - [ ] Use SharedPreferences to save an important piece of data in your application
-- [ ] Allow users to 'favorite' a legislator and retrieve list from database
-- [ ] Use dialogs to inform users of login status
+- [ ] Use progress dialog to inform users of login status
 - [ ] Use SearchView to gather user input
 
 #### Week 4:
@@ -91,6 +93,7 @@ Questions? Concerns? Suggestions? Reach out to me via github: <https://github.co
 * _Java_
 * _XML_
 * _Gradle_
+* _Firebase_
 
 ## License
 This software is licensed under the MIT license.
