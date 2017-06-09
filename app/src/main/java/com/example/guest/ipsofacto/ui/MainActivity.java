@@ -36,8 +36,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String chamber;
 
     @Bind(R.id.submitLocationButton) Button mSubmitLocationButton;
-    @Bind(R.id.startAboutActivity) Button mStartAboutActivity;
-    @Bind(R.id.startContactActivity) Button mStartContactActivity;
     @Bind(R.id.stateTextView) AutoCompleteTextView mStateTextView;
     @Bind(R.id.titleTextView) TextView mTitleTextView;
     @Bind(R.id.radioGroup) RadioGroup mRadioGroup;
@@ -53,8 +51,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mTitleTextView.setTypeface(titleFont);
 
         mSubmitLocationButton.setOnClickListener(this);
-        mStartAboutActivity.setOnClickListener(this);
-        mStartContactActivity.setOnClickListener(this);
         mStateTextView.getOnItemSelectedListener();
         mRadioGroup.setOnCheckedChangeListener(this);
 
@@ -84,12 +80,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } else {
                 Toast.makeText(this, "Please check your internet connection and try again.", Toast.LENGTH_LONG).show();
             }
-        } else if (v == mStartAboutActivity) {
-            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-            startActivity(intent);
-        } else if (v == mStartContactActivity) {
-            Intent intent = new Intent(MainActivity.this, ContactActivity.class);
-            startActivity(intent);
         } else if (v == mSavedLegislatorButton) {
             Intent intent = new Intent(MainActivity.this, SavedLegislatorListActivity.class);
             startActivity(intent);
@@ -140,6 +130,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, ContactActivity.class);
             startActivity(intent);
             return true;
+        }
+        if (id == R.id.action_about) {
+            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
