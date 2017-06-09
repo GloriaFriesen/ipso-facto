@@ -1,54 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.guest.ipsofacto.ui.CreateAccountActivity"
+    tools:context="com.example.guest.ipsofacto.ui.LoginActivity"
     android:background="@color/colorPrimary">
+
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text=" Create Account"
+        android:text=" Welcome"
+        android:drawableLeft="@drawable/ic_insert_emoticon_white_24dp"
         android:textSize="30dp"
         android:textStyle="bold"
-        android:drawableLeft="@drawable/ic_person_add_white_24dp"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/linearLayout"
         android:layout_centerHorizontal="true" />
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
-        android:id="@+id/linearLayout"
-        android:layout_above="@+id/linearLayout2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
-
-        <EditText
-            android:id="@+id/nameEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:hint="Name"
-            android:nextFocusDown="@+id/passwordEditText"
-            android:padding="10dp"
-            android:layout_marginBottom="10dp"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
+        android:padding="30dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linearLayout">
 
         <EditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:background="@android:color/white"
             android:hint="Email"
+            android:drawableRight="@drawable/ic_email_black_24dp"
             android:inputType="textEmailAddress"
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
+            android:layout_marginBottom="10dp"
             android:textColor="@android:color/black"
             android:textSize="20sp" />
 
@@ -56,24 +46,10 @@
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
             android:background="@android:color/white"
-            android:fontFamily="sans-serif"
             android:hint="Password"
-            android:inputType="textPassword"
-            android:nextFocusDown="@+id/passwordEditText"
-            android:padding="10dp"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/confirmPasswordEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@android:color/white"
+            android:drawableRight="@drawable/ic_vpn_key_black_24dp"
             android:fontFamily="sans-serif"
-            android:hint="Confirm Password"
             android:inputType="textPassword"
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
@@ -82,14 +58,14 @@
 
 
         <Button
-            android:id="@+id/createUserButton"
+            android:id="@+id/passwordLoginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Sign up"
+            android:text="Log in"
             android:background="@color/colorAccent"
             android:layout_marginTop="15dp"
-             />
+            />
 
     </LinearLayout>
 
@@ -109,23 +85,24 @@
             android:layout_marginTop="20dp"
             android:textStyle="bold"
             android:textSize="24sp"
-            android:drawableLeft="@drawable/ic_insert_emoticon_white_24dp"
-            android:text=" Existing Account?"
-            android:id="@+id/loginTextView"
+            android:text=" New Here?"
+            android:drawableLeft="@drawable/ic_person_add_white_24dp"
+            android:id="@+id/registerTextView"
             android:layout_gravity="center_horizontal" />
-
         <Button
-            android:id="@+id/signInButton"
+            android:id="@+id/registerButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="Sign In"
+            android:text="Sign Up"
             android:textColor="@android:color/white"
             android:background="@color/colorPrimaryDark"
             android:layout_marginTop="15dp"
             />
 
     </LinearLayout>
+
+
 
 
 </RelativeLayout>
