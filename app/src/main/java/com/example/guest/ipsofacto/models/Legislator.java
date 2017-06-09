@@ -4,78 +4,78 @@ import org.parceler.Parcel;
 
 @Parcel
 public class Legislator {
-    private String mName;
-    private String mRole;
-    private String mParty;
-    private String mDetailURL;
-    private String mPhone;
-    private String mWebsite;
-    private String mTimesWebsite;
-    private String mStartDate;
-    private String mVotePercent;
+    private String name;
+    private String role;
+    private String party;
+    private String detailURL;
+    private String phone;
+    private String website;
+    private String timesWebsite;
+    private String startDate;
+    private String votePercent;
 
     public Legislator() {}
 
     public Legislator(String name, String role, String party, String detailURL) {
-        this.mName = name;
-        this.mRole = role;
-        this.mParty = party;
-        this.mDetailURL = detailURL;
+        this.name = name;
+        this.role = role;
+        this.party = party;
+        this.detailURL = detailURL;
     }
 
     public Legislator(String name, String role, String party, String detailURL, String phone, String website, String timesWebsite, String startDate, String votePercent) {
-        this.mName = name;
-        this.mRole = role;
-        this.mParty = party;
-        this.mDetailURL = detailURL;
-        this.mPhone = phone;
-        this.mWebsite = website;
-        this.mTimesWebsite = timesWebsite;
-        this.mStartDate = startDate;
-        this.mVotePercent = votePercent;
+        this.name = name;
+        this.role = role;
+        this.party = party;
+        this.detailURL = detailURL;
+        this.phone = phone;
+        this.website = website;
+        this.timesWebsite = timesWebsite;
+        this.startDate = startDate;
+        this.votePercent = votePercent;
     }
 
     public String getName() {
-        return mName;
+        return name;
     }
 
     public String getRole() {
-        return mRole;
+        return role;
     }
 
     public String getParty() {
-        if (mParty.equals("D")) {
-            mParty = "Democratic";
-        } else if (mParty.equals("R")) {
-            mParty = "Republican";
-        } else if (mParty.equals("I")) {
-            mParty = "Independent";
+        if (party.equals("D")) {
+            party = "Democratic";
+        } else if (party.equals("R")) {
+            party = "Republican";
+        } else if (party.equals("I")) {
+            party = "Independent";
         }
-        return mParty;
+        return party;
     }
 
     public String getDetailURL() {
-        return mDetailURL;
+        return detailURL;
     }
 
     public String getPhone() {
-        return mPhone;
+        return phone;
     }
 
     public String getWebsite() {
-        return mWebsite;
+        return website;
     }
 
     public String getTimesWebsite() {
-        return mTimesWebsite;
+        return timesWebsite;
     }
 
     public String getStartDate() {
-        return mStartDate;
+        return startDate;
     }
 
     public String getVotePercent() {
-        return mVotePercent;
+        return votePercent;
     }
 }
 
