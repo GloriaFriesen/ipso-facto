@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/IpsoFacto.iml" filepath="$PROJECT_DIR$/IpsoFacto.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/ipso-facto.iml" filepath="$PROJECT_DIR$/ipso-facto.iml" />
     </modules>
