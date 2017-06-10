@@ -69,13 +69,13 @@ Politically engaged citizens.
 #### Week 3:
 - [ ] Firebase user authentication
     - [ ] Sign in screen
-    - [ ] Register screen
-- [ ] Save and retrieve data using Firebase
-- [ ] Firebase-RecyclerAdapter to display from database
+    - [X] Register screen
+- [X] Save and retrieve data using Firebase
+- [X] Firebase-RecyclerAdapter to display from database
     - [X] Allow users to 'favorite' a legislator
-    - [ ] Retrieve list from database
+    - [X] Retrieve list from database
 - [ ] Use SharedPreferences to save an important piece of data in your application
-- [ ] Use progress dialog to inform users of login status
+- [X] Use progress dialog to inform users of login status
 
 #### Week 4:
 - [ ] Include 2 (minimum) gesture listeners, animations, or utilize camera
@@ -83,7 +83,16 @@ Politically engaged citizens.
 - [ ] Publish to Google Play
 
 ## Known Bugs
-* Layout is far from ideal, need to spend time improving especially across different screen sizes.
+* Need to add login functionality
+* Need SharedPreferences
+* SavedLegislatorList
+    * Displays list of all saved legislators (not user specific)
+    * Need to connect user with saved legislator objects
+    * Save Legislator button is at the bottom, not ideal
+* Layout is far from ideal, need to spend time improving especially across different screen sizes
+* Would like to display dialog fragment for search feature, in progress
+    * If not, need to fix layout on MainActivity, it's currently a mess
+
 
 ## Support and contact details
 Questions? Concerns? Suggestions? Reach out to me via github: <https://github.com/GloriaFriesen>.

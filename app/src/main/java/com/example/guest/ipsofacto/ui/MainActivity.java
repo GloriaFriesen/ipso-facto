@@ -6,8 +6,13 @@ import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
@@ -19,6 +24,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.guest.ipsofacto.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -29,10 +36,10 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener, AdapterView.OnItemClickListener {
     Map<String, String> states = new HashMap<>();
     String chamber;
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Bind(R.id.submitLocationButton) Button mSubmitLocationButton;
-    @Bind(R.id.startAboutActivity) Button mStartAboutActivity;
-    @Bind(R.id.startContactActivity) Button mStartContactActivity;
     @Bind(R.id.stateTextView) AutoCompleteTextView mStateTextView;
     @Bind(R.id.titleTextView) TextView mTitleTextView;
     @Bind(R.id.radioGroup) RadioGroup mRadioGroup;
@@ -44,12 +51,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        mAuth = FirebaseAuth.getInstance();
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    getSupportActionBar().setTitle("Welcome, " + user.getDisplayName() + ".");
+                } else {
+
+                }
+            }
+        };
+
         Typeface titleFont = Typeface.createFromAsset(getAssets(), "fonts/juice.ttf");
         mTitleTextView.setTypeface(titleFont);
 
         mSubmitLocationButton.setOnClickListener(this);
-        mStartAboutActivity.setOnClickListener(this);
-        mStartContactActivity.setOnClickListener(this);
         mStateTextView.getOnItemSelectedListener();
         mRadioGroup.setOnCheckedChangeListener(this);
 
@@ -58,6 +76,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mStateTextView.setAdapter(adapter);
         mStateTextView.setOnItemClickListener(this);
         mSavedLegislatorButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
     }
 
 
@@ -79,12 +111,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             } else {
                 Toast.makeText(this, "Please check your internet connection and try again.", Toast.LENGTH_LONG).show();
             }
-        } else if (v == mStartAboutActivity) {
-            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
-            startActivity(intent);
-        } else if (v == mStartContactActivity) {
-            Intent intent = new Intent(MainActivity.this, ContactActivity.class);
-            startActivity(intent);
         } else if (v == mSavedLegislatorButton) {
             Intent intent = new Intent(MainActivity.this, SavedLegislatorListActivity.class);
             startActivity(intent);
@@ -115,5 +141,39 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             states.put(stateNames[i], stateAbbreviations[i]);
         }
         return states;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            logout();
+            return true;
+        }
+        if (id == R.id.action_contact) {
+            Intent intent = new Intent(MainActivity.this, ContactActivity.class);
+            startActivity(intent);
+            return true;
+        }
+        if (id == R.id.action_about) {
+            Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void logout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 }
