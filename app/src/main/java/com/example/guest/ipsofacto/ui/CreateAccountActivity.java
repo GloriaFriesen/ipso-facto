@@ -128,20 +128,21 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
     }
 
     private boolean isValidEmail(String email) {
-        boolean isGoodEmail = (email != null && Patterns.EMAIL_ADDRESS.matcher(email).matches());
-        if (!isGoodEmail) {
+        if (email != null && Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+            return true;
+        } else {
             mEmailEditText.setError("Whoops, it looks like you haven't entered a valid email.");
             return false;
         }
-        return isGoodEmail;
     }
 
     private boolean isValidName(String name)  {
         if (name.equals("")) {
             mNameEditText.setError("Sorry for the intrusion, but we'd like your name, please.");
             return false;
+        } else {
+            return true;
         }
-        return true;
     }
 
     private boolean isValidPassword(String password, String confirmPassword) {
@@ -150,8 +151,10 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
             return false;
         } else if (!password.equals(confirmPassword)) {
             mPasswordEditText.setError("We know you tried, but your passwords are not matching as well as we would have hoped.");
+            return false;
+        } else {
+            return true;
         }
-        return true;
     }
 
     private void createFirebaseUserProfile(final FirebaseUser user) {
