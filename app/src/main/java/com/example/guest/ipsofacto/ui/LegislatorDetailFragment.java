@@ -14,10 +14,13 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.guest.ipsofacto.Constants;
 import com.example.guest.ipsofacto.R;
 import com.example.guest.ipsofacto.adapters.LegislatorListAdapter;
 import com.example.guest.ipsofacto.models.Legislator;
 import com.example.guest.ipsofacto.services.LegislatorService;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.parceler.Parcels;
 
@@ -74,6 +77,7 @@ public class LegislatorDetailFragment extends Fragment implements View.OnClickLi
         mPhoneView.setOnClickListener(this);
         mTimesURLView.setOnClickListener(this);
         mWebsiteView.setOnClickListener(this);
+        mSaveLegislatorButton.setOnClickListener(this);
 
         return view;
     }
@@ -99,6 +103,13 @@ public class LegislatorDetailFragment extends Fragment implements View.OnClickLi
                 Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mLegislator.getWebsite()));
                 startActivity(webIntent);
             }
+        }
+        if (v == mSaveLegislatorButton) {
+            DatabaseReference legislatorReference = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_LEGISLATORS);
+            legislatorReference.push().setValue(mLegislator);
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }
 

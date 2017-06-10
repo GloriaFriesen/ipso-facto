@@ -3,7 +3,7 @@
 #### _By Gloria Friesen_
 
 ### Congress Reference Mobile Application
-Current Version: 1.1 - 06.02.2017
+Current Version: 1.2 - 06.09.2017
 
 ### Description
 
@@ -68,12 +68,14 @@ Politically engaged citizens.
 
 #### Week 3:
 - [ ] Firebase user authentication
-- [ ] Save and retrieve data using Firebase
-- [ ] Firebase-RecyclerAdapter to display from database
+    - [ ] Sign in screen
+    - [X] Register screen
+- [X] Save and retrieve data using Firebase
+- [X] Firebase-RecyclerAdapter to display from database
+    - [X] Allow users to 'favorite' a legislator
+    - [X] Retrieve list from database
 - [ ] Use SharedPreferences to save an important piece of data in your application
-- [ ] Allow users to 'favorite' a legislator and retrieve list from database
-- [ ] Use dialogs to inform users of login status
-- [ ] Use SearchView to gather user input
+- [X] Use progress dialog to inform users of login status
 
 #### Week 4:
 - [ ] Include 2 (minimum) gesture listeners, animations, or utilize camera
@@ -81,7 +83,16 @@ Politically engaged citizens.
 - [ ] Publish to Google Play
 
 ## Known Bugs
-* Layout is far from ideal, need to spend time improving especially across different screen sizes.
+* Need to add login functionality
+* Need SharedPreferences
+* SavedLegislatorList
+    * Displays list of all saved legislators (not user specific)
+    * Need to connect user with saved legislator objects
+    * Save Legislator button is at the bottom, not ideal
+* Layout is far from ideal, need to spend time improving especially across different screen sizes
+* Would like to display dialog fragment for search feature, in progress
+    * If not, need to fix layout on MainActivity, it's currently a mess
+
 
 ## Support and contact details
 Questions? Concerns? Suggestions? Reach out to me via github: <https://github.com/GloriaFriesen>.
@@ -91,6 +102,7 @@ Questions? Concerns? Suggestions? Reach out to me via github: <https://github.co
 * _Java_
 * _XML_
 * _Gradle_
+* _Firebase_
 
 ## License
 This software is licensed under the MIT license.

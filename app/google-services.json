@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "672027728182",
+    "firebase_url": "https://ipso-facto-b128a.firebaseio.com",
+    "project_id": "ipso-facto-b128a",
+    "storage_bucket": "ipso-facto-b128a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:672027728182:android:9a3893d206ada5ee",
+        "android_client_info": {
+          "package_name": "com.example.guest.ipsofacto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "672027728182-h2pbp4vcejpa03961fpji7o29m2cb2v7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.guest.ipsofacto",
+            "certificate_hash": "c6e53d000d051b382990679fbb0ca833f62c96ad"
+          }
+        },
+        {
+          "client_id": "672027728182-uii3t1npu5ogk9h5f9n9ruq0mkagfats.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2-IoRF-bN94WyeLuD4YpgQ2octkg9gXw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "672027728182-uii3t1npu5ogk9h5f9n9ruq0mkagfats.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
