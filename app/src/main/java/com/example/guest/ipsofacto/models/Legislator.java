@@ -13,6 +13,7 @@ public class Legislator {
     private String timesWebsite;
     private String startDate;
     private String votePercent;
+    private String pushId;
 
     public Legislator() {}
 
@@ -76,6 +77,14 @@ public class Legislator {
 
     public String getVotePercent() {
         return votePercent;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 }
 

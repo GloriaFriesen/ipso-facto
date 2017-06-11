@@ -10,6 +10,8 @@ import com.example.guest.ipsofacto.R;
 import com.example.guest.ipsofacto.adapters.FirebaseLegislatorViewHolder;
 import com.example.guest.ipsofacto.models.Legislator;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -28,7 +30,13 @@ public class SavedLegislatorListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_legislator_list);
         ButterKnife.bind(this);
 
-        mLegislatorReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_LEGISLATORS);
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+
+        mLegislatorReference = FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_LEGISLATORS)
+                .child(uid);
         setUpFirebaseAdapter();
     }
 

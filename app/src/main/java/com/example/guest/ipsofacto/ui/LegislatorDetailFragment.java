@@ -19,6 +19,8 @@ import com.example.guest.ipsofacto.R;
 import com.example.guest.ipsofacto.adapters.LegislatorListAdapter;
 import com.example.guest.ipsofacto.models.Legislator;
 import com.example.guest.ipsofacto.services.LegislatorService;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -105,10 +107,15 @@ public class LegislatorDetailFragment extends Fragment implements View.OnClickLi
             }
         }
         if (v == mSaveLegislatorButton) {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
             DatabaseReference legislatorReference = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_LEGISLATORS);
-            legislatorReference.push().setValue(mLegislator);
+                    .getReference(Constants.FIREBASE_CHILD_LEGISLATORS)
+                    .child(uid);
+            DatabaseReference databaseReference = legislatorReference.push();
+            databaseReference.setValue(mLegislator);
+
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
     }
