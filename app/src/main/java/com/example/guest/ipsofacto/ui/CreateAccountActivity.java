@@ -140,9 +140,8 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         if (name.equals("")) {
             mNameEditText.setError("Sorry for the intrusion, but we'd like your name, please.");
             return false;
-        } else {
-            return true;
         }
+        return true;
     }
 
     private boolean isValidPassword(String password, String confirmPassword) {
@@ -152,9 +151,8 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         } else if (!password.equals(confirmPassword)) {
             mPasswordEditText.setError("We know you tried, but your passwords are not matching as well as we would have hoped.");
             return false;
-        } else {
-            return true;
         }
+        return true;
     }
 
     private void createFirebaseUserProfile(final FirebaseUser user) {

@@ -32,6 +32,7 @@ public class LegislatorDetailActivity extends AppCompatActivity {
 
         adapterViewPager = new LegislatorPagerAdapter(getSupportFragmentManager(), mLegislators);
         mViewPager.setAdapter(adapterViewPager);
+        mViewPager.setOffscreenPageLimit(3);
         mViewPager.setCurrentItem(startingPosition);
     }
 }
