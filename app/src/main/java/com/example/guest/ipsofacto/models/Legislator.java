@@ -2,8 +2,6 @@ package com.example.guest.ipsofacto.models;
 
 import org.parceler.Parcel;
 
-import java.text.SimpleDateFormat;
-
 @Parcel
 public class Legislator {
     private String name;

@@ -36,7 +36,7 @@ public class LegislatorDetailFragment extends Fragment implements View.OnClickLi
     @Bind(R.id.detailNameTextView) TextView mNameView;
     @Bind(R.id.detailPartyTextView) TextView mPartyView;
     @Bind(R.id.detailPhoneTextView) TextView mPhoneView;
-    @Bind(R.id.detailStartDateTextView) TextView mStartDateView;
+    @Bind(R.id.detailBirthDateTextView) TextView mBirthDateTextView;
     @Bind(R.id.detailTimesURLTextView) TextView mTimesURLView;
     @Bind(R.id.detailVotePartyPercentageTextView) TextView mVotePartyPercentView;
     @Bind(R.id.detailWebsiteTextView) TextView mWebsiteView;
@@ -135,9 +135,9 @@ public class LegislatorDetailFragment extends Fragment implements View.OnClickLi
                     @Override
                     public void run() {
                     mPhoneView.setText(mLegislator.getPhone());
-                    mStartDateView.setText(mLegislator.getBirthDate());
+                    mBirthDateTextView.setText(mLegislator.getBirthDate());
                     mTimesURLView.setText(mLegislator.getTimesWebsite());
-                    mVotePartyPercentView.setText(mLegislator.getVotePercent());
+                    mVotePartyPercentView.setText(mLegislator.getVotePercent() + "%");
                     mWebsiteView.setText(mLegislator.getWebsite());
                     }
                 });

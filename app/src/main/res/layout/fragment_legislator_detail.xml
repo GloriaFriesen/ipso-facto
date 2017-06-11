@@ -72,7 +72,7 @@
                         android:drawablePadding="4dp"
                         android:gravity="center"
                         android:drawableLeft="@drawable/ic_web_white_24dp"
-                        android:text="Goverment website"
+                        android:text="Goverment website: "
                         android:textSize="15sp"
                         android:textColor="@android:color/white"
                         android:textStyle="bold" />
@@ -83,7 +83,6 @@
                         android:layout_marginBottom="10dp"
                         android:drawablePadding="4dp"
                         android:gravity="center"
-                        android:text="Congressional Website"
                         android:textSize="15sp"
                         android:textColor="@android:color/white"
                         android:textStyle="bold" />
@@ -102,7 +101,7 @@
                         android:drawablePadding="4dp"
                         android:gravity="center"
                         android:drawableLeft="@drawable/ic_format_quote_white_24dp"
-                        android:text="New York Times Mentions"
+                        android:text="New York Times Mentions: "
                         android:textSize="15sp"
                         android:textColor="@android:color/white"
                         android:textStyle="bold" />
@@ -113,7 +112,6 @@
                         android:layout_marginBottom="10dp"
                         android:drawablePadding="4dp"
                         android:gravity="center"
-                        android:text="Times Topics Website"
                         android:textSize="15sp"
                         android:textColor="@android:color/white"
                         android:textStyle="bold" />
@@ -142,7 +140,6 @@
                         android:layout_marginBottom="10dp"
                         android:drawablePadding="4dp"
                         android:gravity="center"
-                        android:text="(503) 223-1282"
                         android:textSize="15sp"
                         android:textColor="@android:color/white"
                         android:textStyle="bold" />
@@ -154,25 +151,24 @@
                     android:orientation="horizontal"
                     >
                     <TextView
-                        android:id="@+id/startDateTextView"
+                        android:id="@+id/birthDateTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:drawablePadding="4dp"
                         android:gravity="center"
                         android:drawableLeft="@drawable/ic_event_white_24dp"
-                        android:text="Member of Congress Since: "
+                        android:text="Date of Birth: "
                         android:textSize="15sp"
                         android:textColor="@android:color/white"
                         android:textStyle="bold" />
                     <TextView
-                        android:id="@+id/detailStartDateTextView"
+                        android:id="@+id/detailBirthDateTextView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:drawablePadding="4dp"
                         android:gravity="center"
-                        android:text="1/17/1990"
                         android:textSize="15sp"
                         android:textColor="@android:color/white"
                         android:textStyle="bold" />
@@ -202,7 +198,6 @@
                         android:layout_marginBottom="10dp"
                         android:drawablePadding="4dp"
                         android:gravity="center"
-                        android:text="95%"
                         android:textSize="15sp"
                         android:textColor="@android:color/white"
                         android:textStyle="bold" />
