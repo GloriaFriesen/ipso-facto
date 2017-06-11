@@ -116,7 +116,8 @@ public class LegislatorDetailFragment extends Fragment implements View.OnClickLi
             DatabaseReference databaseReference = legislatorReference.push();
             databaseReference.setValue(mLegislator);
 
-            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(getContext(), SavedLegislatorListActivity.class);
+            startActivity(intent);
         }
     }
 
