@@ -19,6 +19,7 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import butterknife.Bind;
@@ -29,15 +30,13 @@ public class LegislatorListAdapter extends RecyclerView.Adapter<LegislatorListAd
     private SharedPreferences.Editor mEditor;
     private ArrayList<Legislator> mLegislators = new ArrayList<>();
     private Context mContext;
-    private Set<String> fetch;
 
     @Override
     public LegislatorListAdapter.LegislatorViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.legislator_list_item, parent, false);
         LegislatorViewHolder viewHolder = new LegislatorViewHolder(view);
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
-        fetch = mSharedPreferences.getStringSet(Constants.PREFERENCES_SEARCHED_KEY, null);
+        mSharedPreferences = mContext.getSharedPreferences(Constants.PREFERENCES_SEARCHED_KEY, Context.MODE_PRIVATE);
 
         return viewHolder;
     }
@@ -76,23 +75,25 @@ public class LegislatorListAdapter extends RecyclerView.Adapter<LegislatorListAd
             mPartyTextView.setText(legislator.getParty());
             mRoleTextView.setText(legislator.getRole());
 
-            if (fetch != null) {
-                if (fetch.contains(legislator.getName())) {
-                    mNameTextView.setTextColor(mContext.getResources().getColor(R.color.colorAccent));
+            Map<String, ?> selectedLegislators = mSharedPreferences.getAll();
+
+            if (!selectedLegislators.isEmpty()) {
+                for (Map.Entry<String, ?> entry : selectedLegislators.entrySet()) {
+                    if (entry.getValue().toString().equals(legislator.getName())) {
+                        mNameTextView.setTextColor(mContext.getResources().getColor(R.color.colorAccent));
+                    }
                 }
             }
-
         }
 
         @Override
         public void onClick(View v) {
             int itemPosition = getLayoutPosition();
 
-            mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
-            mEditor = mSharedPreferences.edit();
-            Set<String> set = new HashSet<>();
-            set.add(mLegislators.get(itemPosition).getName());
-            mEditor.putStringSet(Constants.PREFERENCES_SEARCHED_KEY, set).apply();
+            SharedPreferences preferences = mContext.getSharedPreferences(Constants.PREFERENCES_SEARCHED_KEY, Context.MODE_PRIVATE);
+            mEditor = preferences.edit();
+            mEditor.putString(mLegislators.get(itemPosition).getName(), mLegislators.get(itemPosition).getName()).apply();
+            mNameTextView.setTextColor(mContext.getResources().getColor(R.color.colorAccent));
 
             Intent intent = new Intent(mContext, LegislatorDetailActivity.class);
             intent.putExtra("position", itemPosition);

@@ -85,7 +85,6 @@ public class LegislatorService {
         Legislator detailLegislator = new Legislator();
         try {
             String jsonData = response.body().string();
-            Log.e(this.getClass().getCanonicalName(), jsonData.toString());
             if (response.isSuccessful()) {
                 JSONObject responseJSON = new JSONObject(jsonData);
 
