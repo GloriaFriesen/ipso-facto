@@ -67,8 +67,8 @@ Politically engaged citizens.
     - [X] Gov website
 
 #### Week 3:
-- [ ] Firebase user authentication
-    - [ ] Sign in screen
+- [X] Firebase user authentication
+    - [X] Sign in screen
     - [X] Register screen
 - [X] Save and retrieve data using Firebase
 - [X] Firebase-RecyclerAdapter to display from database
@@ -83,11 +83,8 @@ Politically engaged citizens.
 - [ ] Publish to Google Play
 
 ## Known Bugs
-* Need to add login functionality
 * Need SharedPreferences
 * SavedLegislatorList
-    * Displays list of all saved legislators (not user specific)
-    * Need to connect user with saved legislator objects
     * Save Legislator button is at the bottom, not ideal
 * Layout is far from ideal, need to spend time improving especially across different screen sizes
 * Would like to display dialog fragment for search feature, in progress
