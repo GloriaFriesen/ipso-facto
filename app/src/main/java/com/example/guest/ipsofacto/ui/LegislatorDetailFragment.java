@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +14,6 @@ import android.widget.Toast;
 
 import com.example.guest.ipsofacto.Constants;
 import com.example.guest.ipsofacto.R;
-import com.example.guest.ipsofacto.adapters.LegislatorListAdapter;
 import com.example.guest.ipsofacto.models.Legislator;
 import com.example.guest.ipsofacto.services.LegislatorService;
 import com.google.firebase.auth.FirebaseAuth;
@@ -138,7 +135,7 @@ public class LegislatorDetailFragment extends Fragment implements View.OnClickLi
                     @Override
                     public void run() {
                     mPhoneView.setText(mLegislator.getPhone());
-                    mStartDateView.setText(mLegislator.getStartDate());
+                    mStartDateView.setText(mLegislator.getBirthDate());
                     mTimesURLView.setText(mLegislator.getTimesWebsite());
                     mVotePartyPercentView.setText(mLegislator.getVotePercent());
                     mWebsiteView.setText(mLegislator.getWebsite());
