@@ -3,6 +3,7 @@ package com.example.guest.ipsofacto.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -10,6 +11,9 @@ import com.example.guest.ipsofacto.Constants;
 import com.example.guest.ipsofacto.R;
 import com.example.guest.ipsofacto.models.Legislator;
 import com.example.guest.ipsofacto.ui.LegislatorDetailActivity;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.UserInfo;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -48,17 +52,19 @@ public class FirebaseLegislatorViewHolder extends RecyclerView.ViewHolder implem
     @Override
     public void onClick(View view) {
         final ArrayList<Legislator> legislators = new ArrayList<>();
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_LEGISLATORS);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_LEGISLATORS).child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    legislators.add(snapshot.getValue(Legislator.class));
+                    Legislator legislator = snapshot.getValue(Legislator.class);
+                    legislator.setPushId(snapshot.getKey());
+                    legislators.add(legislator);
                 }
                 int itemPosition = getLayoutPosition();
 
                 Intent intent = new Intent(mContext, LegislatorDetailActivity.class);
-                intent.putExtra("position", itemPosition+"");
+                intent.putExtra("position", itemPosition + "");
                 intent.putExtra("legislators", Parcels.wrap(legislators));
 
                 mContext.startActivity(intent);

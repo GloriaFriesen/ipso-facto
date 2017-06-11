@@ -1,5 +1,7 @@
 package com.example.guest.ipsofacto.services;
 
+import android.util.Log;
+
 import com.example.guest.ipsofacto.Constants;
 import com.example.guest.ipsofacto.models.Legislator;
 
@@ -83,12 +85,14 @@ public class LegislatorService {
         Legislator detailLegislator = new Legislator();
         try {
             String jsonData = response.body().string();
+            Log.e(this.getClass().getCanonicalName(), jsonData.toString());
             if (response.isSuccessful()) {
                 JSONObject responseJSON = new JSONObject(jsonData);
 
                 JSONArray resultsJSON = responseJSON.getJSONArray("results");
                 JSONObject legislatorJSON = resultsJSON.getJSONObject(0);
                 String website = legislatorJSON.getString("url");
+                String birthDate = legislatorJSON.getString("date_of_birth");
                 String timesWebsite = legislatorJSON.getString("times_topics_url");
                 if (timesWebsite.equals("")) {
                     timesWebsite = "None listed";
@@ -96,10 +100,9 @@ public class LegislatorService {
                 JSONArray rolesJSON = legislatorJSON.getJSONArray("roles");
                 JSONObject legislatorDetailJSON = rolesJSON.getJSONObject(0);
                 String phone = legislatorDetailJSON.getString("phone");
-                String startDate = legislatorDetailJSON.getString("start_date");
                 String votePercent = legislatorDetailJSON.getString("votes_with_party_pct");
 
-                detailLegislator = new Legislator(legislator.getName(), legislator.getRole(), legislator.getParty(), legislator.getDetailURL(), phone, website, timesWebsite, startDate, votePercent);
+                detailLegislator = new Legislator(legislator.getName(), legislator.getRole(), legislator.getParty(), legislator.getDetailURL(), phone, website, timesWebsite, birthDate, votePercent);
             }
         } catch (IOException e) {
             e.printStackTrace();

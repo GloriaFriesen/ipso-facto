@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +14,10 @@ import android.widget.Toast;
 
 import com.example.guest.ipsofacto.Constants;
 import com.example.guest.ipsofacto.R;
-import com.example.guest.ipsofacto.adapters.LegislatorListAdapter;
 import com.example.guest.ipsofacto.models.Legislator;
 import com.example.guest.ipsofacto.services.LegislatorService;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -37,7 +36,7 @@ public class LegislatorDetailFragment extends Fragment implements View.OnClickLi
     @Bind(R.id.detailNameTextView) TextView mNameView;
     @Bind(R.id.detailPartyTextView) TextView mPartyView;
     @Bind(R.id.detailPhoneTextView) TextView mPhoneView;
-    @Bind(R.id.detailStartDateTextView) TextView mStartDateView;
+    @Bind(R.id.detailBirthDateTextView) TextView mBirthDateTextView;
     @Bind(R.id.detailTimesURLTextView) TextView mTimesURLView;
     @Bind(R.id.detailVotePartyPercentageTextView) TextView mVotePartyPercentView;
     @Bind(R.id.detailWebsiteTextView) TextView mWebsiteView;
@@ -105,11 +104,17 @@ public class LegislatorDetailFragment extends Fragment implements View.OnClickLi
             }
         }
         if (v == mSaveLegislatorButton) {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
             DatabaseReference legislatorReference = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_LEGISLATORS);
-            legislatorReference.push().setValue(mLegislator);
-            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+                    .getReference(Constants.FIREBASE_CHILD_LEGISLATORS)
+                    .child(uid);
+            DatabaseReference databaseReference = legislatorReference.push();
+            databaseReference.setValue(mLegislator);
+
+            Intent intent = new Intent(getContext(), SavedLegislatorListActivity.class);
+            startActivity(intent);
         }
     }
 
@@ -130,9 +135,9 @@ public class LegislatorDetailFragment extends Fragment implements View.OnClickLi
                     @Override
                     public void run() {
                     mPhoneView.setText(mLegislator.getPhone());
-                    mStartDateView.setText(mLegislator.getStartDate());
+                    mBirthDateTextView.setText(mLegislator.getBirthDate());
                     mTimesURLView.setText(mLegislator.getTimesWebsite());
-                    mVotePartyPercentView.setText(mLegislator.getVotePercent());
+                    mVotePartyPercentView.setText(mLegislator.getVotePercent() + "%");
                     mWebsiteView.setText(mLegislator.getWebsite());
                     }
                 });

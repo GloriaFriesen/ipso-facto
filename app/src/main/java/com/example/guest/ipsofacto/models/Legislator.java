@@ -11,8 +11,9 @@ public class Legislator {
     private String phone;
     private String website;
     private String timesWebsite;
-    private String startDate;
+    private String birthDate;
     private String votePercent;
+    private String pushId;
 
     public Legislator() {}
 
@@ -23,7 +24,7 @@ public class Legislator {
         this.detailURL = detailURL;
     }
 
-    public Legislator(String name, String role, String party, String detailURL, String phone, String website, String timesWebsite, String startDate, String votePercent) {
+    public Legislator(String name, String role, String party, String detailURL, String phone, String website, String timesWebsite, String birthDate, String votePercent) {
         this.name = name;
         this.role = role;
         this.party = party;
@@ -31,7 +32,7 @@ public class Legislator {
         this.phone = phone;
         this.website = website;
         this.timesWebsite = timesWebsite;
-        this.startDate = startDate;
+        this.birthDate = birthDate;
         this.votePercent = votePercent;
     }
 
@@ -70,12 +71,20 @@ public class Legislator {
         return timesWebsite;
     }
 
-    public String getStartDate() {
-        return startDate;
+    public String getBirthDate() {
+        return birthDate;
     }
 
     public String getVotePercent() {
         return votePercent;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 }
 
