@@ -2,8 +2,10 @@ package com.example.guest.ipsofacto.ui;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +26,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import org.parceler.Parcels;
 
 import java.io.IOException;
+import java.util.Set;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
