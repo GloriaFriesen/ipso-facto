@@ -1,6 +1,8 @@
 package com.example.guest.ipsofacto.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +11,7 @@ import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.guest.ipsofacto.Constants;
 import com.example.guest.ipsofacto.adapters.LegislatorListAdapter;
 import com.example.guest.ipsofacto.adapters.LegislatorsArrayAdapter;
 import com.example.guest.ipsofacto.R;
@@ -17,6 +20,7 @@ import com.example.guest.ipsofacto.services.LegislatorService;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Set;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -25,9 +29,6 @@ import okhttp3.Callback;
 import okhttp3.Response;
 
 public class LegislatorListActivity extends AppCompatActivity {
-    private String[] names = new String[] {"Abby", "Jack", "Teddy"};
-    private String[] parties = new String[] {"Democrat", "Independent", "Republican"};
-    private String[] phones = new String[] {"202-555-1234", "503-867-5309", "347-489-4608"};
     public ArrayList<Legislator> mLegislators = new ArrayList<>();
     private LegislatorListAdapter mAdapter;
 

@@ -74,7 +74,7 @@ Politically engaged citizens.
 - [X] Firebase-RecyclerAdapter to display from database
     - [X] Allow users to 'favorite' a legislator
     - [X] Retrieve list from database
-- [ ] Use SharedPreferences to save an important piece of data in your application
+- [X] Use SharedPreferences to save an important piece of data in your application
 - [X] Use progress dialog to inform users of login status
 
 #### Week 4:
@@ -83,7 +83,6 @@ Politically engaged citizens.
 - [ ] Publish to Google Play
 
 ## Known Bugs
-* Need SharedPreferences
 * SavedLegislatorList
     * Save Legislator button is at the bottom, not ideal
 * Layout is far from ideal, need to spend time improving especially across different screen sizes
