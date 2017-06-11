@@ -1,5 +1,6 @@
 package com.example.guest.ipsofacto.ui;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -24,6 +25,7 @@ import butterknife.ButterKnife;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private ProgressDialog mAuthProgressDialog;
 
     @Bind(R.id.registerButton) Button mRegisterButton;
     @Bind(R.id.loginButton) Button mLoginButton;
@@ -38,6 +40,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         mRegisterButton.setOnClickListener(this);
         mLoginButton.setOnClickListener(this);
+
+        createAuthProgressDialog();
 
         mAuth = FirebaseAuth.getInstance();
         mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -90,11 +94,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         boolean isPasswordValid = checkPassword(password);
 
         if (isEmailValid && isPasswordValid) {
+            mAuthProgressDialog.show();
             mAuth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
 
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
+                            mAuthProgressDialog.dismiss();
                             Log.d("Login", "signInWithEmail:onComplete:" + task.isSuccessful());
                             if (!task.isSuccessful()) {
                                 Log.w("Login", "signInWithEmail", task.getException());
@@ -120,5 +126,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return false;
         }
         return true;
+    }
+
+    private void createAuthProgressDialog() {
+        mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog.setTitle("Patience, please...");
+        mAuthProgressDialog.setMessage("Checking credentials...");
+        mAuthProgressDialog.setCancelable(false);
     }
 }
