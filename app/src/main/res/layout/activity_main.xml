@@ -31,11 +31,10 @@
             android:layout_marginTop="0dp"
             android:background="@color/colorAccent"
             android:text="Ipso Facto"
-            android:padding="10dp"
             android:textAlignment="center"
             android:textColor="@android:color/white"
-            android:textSize="80sp"
-             />
+            android:textSize="75sp"
+            />
 
         <TextView
             android:id="@+id/textView2"
@@ -43,11 +42,12 @@
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:background="#6000"
-            android:padding="15dp"
+            android:padding="5dp"
             android:textColor="@android:color/white"
             android:textAlignment="center"
             android:text="Lawmaker Lookup for Empowered Citizens."
             />
+
     </LinearLayout>
 
 
@@ -56,9 +56,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:gravity="center"
-        android:background="@color/colorAccent"
+        android:background="#9000"
         android:padding="20dp"
-        android:layout_marginBottom="10dp"
         android:layout_above="@+id/savedLegislatorButton"
         android:id="@+id/linearLayout3">
 
@@ -70,6 +69,8 @@
             android:dropDownHeight="wrap_content"
             android:dropDownWidth="match_parent"
             android:hint="State"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
             android:theme="@style/Autocomplete"
             android:cursorVisible="true"
             android:textAlignment="center"
@@ -81,43 +82,38 @@
             android:layout_height="wrap_content"
             android:text="&amp;"
             android:textSize="30sp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             />
+
 
         <RadioGroup
             android:id="@+id/radioGroup"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal">
+            android:gravity="start"
+            android:orientation="horizontal">
+
             <RadioButton
                 android:id="@+id/House"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="House"
+                android:buttonTint="@android:color/white"
+                android:textColor="@android:color/white"
                 android:tag="house"
-                android:buttonTint="@android:color/black"
-                 />
+                android:text="House" />
 
             <RadioButton
                 android:id="@+id/Senate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Senate"
+                android:buttonTint="@android:color/white"
+                android:textColor="@android:color/white"
                 android:tag="senate"
-                android:buttonTint="@android:color/black"
-
+                android:text="Senate"
                 />
-        </RadioGroup>
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/submitLocationButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            app:backgroundTint="@color/colorPrimary"
-            app:fabSize="normal"
-            app:srcCompat="@android:drawable/ic_menu_search" />
+        </RadioGroup>
     </LinearLayout>
 
     <Button
@@ -130,5 +126,20 @@
         android:layout_alignBottom="@+id/imageView"
         android:text="Saved Legislators"
         />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/submitLocationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:clickable="true"
+        app:backgroundTint="@color/colorAccent"
+        app:fabSize="normal"
+        app:srcCompat="@android:drawable/ic_menu_search" />
 
 </RelativeLayout>
