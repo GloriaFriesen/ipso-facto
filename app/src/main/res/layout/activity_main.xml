@@ -41,12 +41,12 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:background="#6000"
             android:padding="15dp"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textAlignment="center"
-            android:text="Find your congressional representatives."
+            android:text="Lawmaker Lookup for Empowered Citizens."
             />
     </LinearLayout>
 
@@ -96,6 +96,7 @@
                 android:layout_height="wrap_content"
                 android:text="House"
                 android:tag="house"
+                android:buttonTint="@android:color/black"
                  />
 
             <RadioButton
@@ -104,7 +105,9 @@
                 android:layout_height="wrap_content"
                 android:text="Senate"
                 android:tag="senate"
-               />
+                android:buttonTint="@android:color/black"
+
+                />
         </RadioGroup>
 
         <android.support.design.widget.FloatingActionButton
