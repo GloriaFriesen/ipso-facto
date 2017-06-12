@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-    @Bind(R.id.submitLocationButton) Button mSubmitLocationButton;
+    @Bind(R.id.submitLocationButton) FloatingActionButton mSubmitLocationButton;
     @Bind(R.id.stateTextView) AutoCompleteTextView mStateTextView;
     @Bind(R.id.titleTextView) TextView mTitleTextView;
     @Bind(R.id.radioGroup) RadioGroup mRadioGroup;
