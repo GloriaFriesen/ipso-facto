@@ -41,7 +41,7 @@ public class SavedLegislatorListActivity extends AppCompatActivity {
     }
 
     private void setUpFirebaseAdapter() {
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<Legislator, FirebaseLegislatorViewHolder>(Legislator.class, R.layout.legislator_list_item, FirebaseLegislatorViewHolder.class, mLegislatorReference) {
+        mFirebaseAdapter = new FirebaseRecyclerAdapter<Legislator, FirebaseLegislatorViewHolder>(Legislator.class, R.layout.legislator_list_item_drag, FirebaseLegislatorViewHolder.class, mLegislatorReference) {
             @Override
             protected  void populateViewHolder(FirebaseLegislatorViewHolder viewHolder, Legislator model, int position) {
                 viewHolder.bindLegislator(model);
