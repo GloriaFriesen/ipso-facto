@@ -30,7 +30,7 @@
                 android:textColor="@color/colorPrimary"/>
 
             <ImageView
-                android:id="@+id/dragIcon"
+                android:id="@+id/iconImageView"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="end"
