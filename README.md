@@ -81,7 +81,7 @@ Politically engaged citizens.
 - [X] Include 2 (minimum) gesture listeners, animations, or utilize camera
   - [X] Implement drag to reorder saved legislators
   - [X] Implement swipe to delete saved legislator
-  - [ ] Implement animation when moving saved legislator
+  - [X] Implement animation when moving saved legislator
 - [ ] Implements alternate resource
 - [ ] Publish to Google Play
 
