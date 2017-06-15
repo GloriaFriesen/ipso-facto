@@ -31,7 +31,7 @@ import java.util.ArrayList;
  * Created by Guest on 6/9/17.
  */
 
-public class FirebaseLegislatorViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FirebaseLegislatorViewHolder extends RecyclerView.ViewHolder {
     View mView;
     Context mContext;
     public ImageView mIconImageView;
@@ -40,7 +40,7 @@ public class FirebaseLegislatorViewHolder extends RecyclerView.ViewHolder implem
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-        itemView.setOnClickListener(this);
+//        itemView.setOnClickListener(this);
     }
 
     public void bindLegislator(Legislator legislator) {
@@ -54,32 +54,32 @@ public class FirebaseLegislatorViewHolder extends RecyclerView.ViewHolder implem
         partyTextView.setText(legislator.getParty());
     }
 
-    @Override
-    public void onClick(View view) {
-        final ArrayList<Legislator> legislators = new ArrayList<>();
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_LEGISLATORS).child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Legislator legislator = snapshot.getValue(Legislator.class);
-                    legislator.setPushId(snapshot.getKey());
-                    legislators.add(legislator);
-                }
-                int itemPosition = getLayoutPosition();
-
-                Intent intent = new Intent(mContext, LegislatorDetailActivity.class);
-                intent.putExtra("position", itemPosition + "");
-                intent.putExtra("legislators", Parcels.wrap(legislators));
-
-                mContext.startActivity(intent);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
+//    @Override
+//    public void onClick(View view) {
+//        final ArrayList<Legislator> legislators = new ArrayList<>();
+//        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_LEGISLATORS).child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+//        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot dataSnapshot) {
+//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+//                    Legislator legislator = snapshot.getValue(Legislator.class);
+//                    legislator.setPushId(snapshot.getKey());
+//                    legislators.add(legislator);
+//                }
+//                int itemPosition = getLayoutPosition();
+//
+//                Intent intent = new Intent(mContext, LegislatorDetailActivity.class);
+//                intent.putExtra("position", itemPosition + "");
+//                intent.putExtra("legislators", Parcels.wrap(legislators));
+//
+//                mContext.startActivity(intent);
+//            }
+//
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//
+//            }
+//        });
+//    }
 
 }
