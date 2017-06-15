@@ -75,7 +75,7 @@
          />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/emailTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="gloriafriesen@gmail.com"
@@ -84,7 +84,7 @@
         />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/linkedinTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="linkedin.com/in/gloriafriesen"
@@ -93,7 +93,7 @@
         />
 
     <TextView
-        android:id="@+id/textView7"
+        android:id="@+id/githubTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="github.com/gloriafriesen"

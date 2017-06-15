@@ -88,6 +88,7 @@ Politically engaged citizens.
 * Layout is far from ideal, need to spend time improving especially across different screen sizes
 * Would like to display dialog fragment for search feature, in progress
     * If not, need to fix layout on MainActivity, it's currently a mess
+* Email intent on Contact Activity - opens email but does not populate email address
 
 
 ## Support and contact details
