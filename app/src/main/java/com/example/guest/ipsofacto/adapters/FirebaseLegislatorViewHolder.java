@@ -13,6 +13,7 @@ import com.example.guest.ipsofacto.Constants;
 import com.example.guest.ipsofacto.R;
 import com.example.guest.ipsofacto.models.Legislator;
 import com.example.guest.ipsofacto.ui.LegislatorDetailActivity;
+import com.example.guest.ipsofacto.util.ItemTouchHelperViewHolder;
 import com.example.guest.ipsofacto.util.OnStartDragListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.UserInfo;
@@ -27,11 +28,7 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-/**
- * Created by Guest on 6/9/17.
- */
-
-public class FirebaseLegislatorViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FirebaseLegislatorViewHolder extends RecyclerView.ViewHolder implements ItemTouchHelperViewHolder {
     View mView;
     Context mContext;
     public ImageView mIconImageView;
@@ -40,7 +37,6 @@ public class FirebaseLegislatorViewHolder extends RecyclerView.ViewHolder implem
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-        itemView.setOnClickListener(this);
     }
 
     public void bindLegislator(Legislator legislator) {
@@ -55,31 +51,20 @@ public class FirebaseLegislatorViewHolder extends RecyclerView.ViewHolder implem
     }
 
     @Override
-    public void onClick(View view) {
-        final ArrayList<Legislator> legislators = new ArrayList<>();
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_LEGISLATORS).child(FirebaseAuth.getInstance().getCurrentUser().getUid());
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Legislator legislator = snapshot.getValue(Legislator.class);
-                    legislator.setPushId(snapshot.getKey());
-                    legislators.add(legislator);
-                }
-                int itemPosition = getLayoutPosition();
+    public void onItemSelected() {
+        itemView.animate()
+                .alpha(0.8f)
+                .scaleX(0.9f)
+                .scaleY(0.9f)
+                .setDuration(500);
+    }
 
-                Intent intent = new Intent(mContext, LegislatorDetailActivity.class);
-                intent.putExtra("position", itemPosition + "");
-                intent.putExtra("legislators", Parcels.wrap(legislators));
-
-                mContext.startActivity(intent);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+    @Override
+    public void onItemClear() {
+        itemView.animate()
+                .alpha(1f)
+                .scaleX(1f)
+                .scaleY(1f);
     }
 
 }

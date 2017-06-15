@@ -44,14 +44,15 @@ public class SavedLegislatorListActivity extends AppCompatActivity implements On
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
 
-        mLegislatorReference = FirebaseDatabase
+        Query query = FirebaseDatabase
                 .getInstance()
                 .getReference(Constants.FIREBASE_CHILD_LEGISLATORS)
-                .child(uid);
+                .child(uid)
+                .orderByChild(Constants.FIREBASE_QUERY_INDEX);
 
         mFirebaseAdapter = new FirebaseLegislatorListAdapter(Legislator.class,
                 R.layout.legislator_list_item_drag, FirebaseLegislatorViewHolder.class,
-                mLegislatorReference, this, this);
+                query, this, this);
 
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));

@@ -78,7 +78,10 @@ Politically engaged citizens.
 - [X] Use progress dialog to inform users of login status
 
 #### Week 4:
-- [ ] Include 2 (minimum) gesture listeners, animations, or utilize camera
+- [X] Include 2 (minimum) gesture listeners, animations, or utilize camera
+  - [X] Implement drag to reorder saved legislators
+  - [X] Implement swipe to delete saved legislator
+  - [ ] Implement animation when moving saved legislator
 - [ ] Implements alternate resource
 - [ ] Publish to Google Play
 
@@ -86,9 +89,6 @@ Politically engaged citizens.
 * SavedLegislatorList
     * Save Legislator button is at the bottom, not ideal
 * Layout is far from ideal, need to spend time improving especially across different screen sizes
-* Would like to display dialog fragment for search feature, in progress
-    * If not, need to fix layout on MainActivity, it's currently a mess
-
 
 ## Support and contact details
 Questions? Concerns? Suggestions? Reach out to me via github: <https://github.com/GloriaFriesen>.

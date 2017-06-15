@@ -14,6 +14,7 @@ public class Legislator {
     private String birthDate;
     private String votePercent;
     private String pushId;
+    private String index;
 
     public Legislator() {}
 
@@ -34,6 +35,7 @@ public class Legislator {
         this.timesWebsite = timesWebsite;
         this.birthDate = birthDate;
         this.votePercent = votePercent;
+        this.index = "not_specified";
     }
 
     public String getName() {
@@ -85,6 +87,14 @@ public class Legislator {
 
     public void setPushId(String pushId) {
         this.pushId = pushId;
+    }
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 }
 
