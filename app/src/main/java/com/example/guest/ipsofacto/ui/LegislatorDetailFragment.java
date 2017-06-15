@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -43,7 +44,7 @@ public class LegislatorDetailFragment extends Fragment implements View.OnClickLi
     @Bind(R.id.detailTimesURLTextView) TextView mTimesURLView;
     @Bind(R.id.detailVotePartyPercentageTextView) TextView mVotePartyPercentView;
     @Bind(R.id.detailWebsiteTextView) TextView mWebsiteView;
-    @Bind(R.id.saveLegislatorButton) Button mSaveLegislatorButton;
+    @Bind(R.id.saveLegislatorButton) FloatingActionButton mSaveLegislatorButton;
 
     private Legislator mLegislator;
 

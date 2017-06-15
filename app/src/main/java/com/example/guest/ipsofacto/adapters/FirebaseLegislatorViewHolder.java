@@ -53,7 +53,7 @@ public class FirebaseLegislatorViewHolder extends RecyclerView.ViewHolder implem
     @Override
     public void onItemSelected() {
         itemView.animate()
-                .alpha(0.8f)
+                .alpha(0.5f)
                 .scaleX(0.9f)
                 .scaleY(0.9f)
                 .setDuration(500);
