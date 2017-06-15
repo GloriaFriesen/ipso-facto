@@ -8,7 +8,7 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    android:background="#B0BEC5"
+    android:background="@color/colorPrimaryLight"
     tools:context=".ui.LegislatorListActivity">
 
     <android.support.v7.widget.RecyclerView
