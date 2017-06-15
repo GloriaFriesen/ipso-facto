@@ -18,7 +18,7 @@ Politically engaged citizens.
 * In the terminal, run: `$ git clone <https://github.com/GloriaFriesen/ipso-facto>`
 * Open Android Studio and select 'Open an existing Android Studio project'
 * Find project Ipso Facto on local machine
-* In Android Studio, run app on emulator or connected Android device (Keyboard shortcut: Shift+F10)
+* In Android Studio, run app on emulator or connected Android device
 
 ## Objectives
 
@@ -96,7 +96,6 @@ Politically engaged citizens.
     * Save Legislator button is at the bottom, not ideal
 * Email intent on Contact Activity - opens email but does not populate email address
 
-
 ## Support and contact details
 Questions? Concerns? Suggestions? Reach out to me via github: <https://github.com/GloriaFriesen>.
 
@@ -106,6 +105,7 @@ Questions? Concerns? Suggestions? Reach out to me via github: <https://github.co
 * _XML_
 * _Gradle_
 * _Firebase_
+* _ProPublica API_
 
 ## License
 This software is licensed under the MIT license.
