@@ -3,7 +3,7 @@
 #### _By Gloria Friesen_
 
 ### Congress Reference Mobile Application
-Current Version: 1.2 - 06.09.2017
+Current Version: 1.3 - 06.16.2017
 
 ### Description
 
