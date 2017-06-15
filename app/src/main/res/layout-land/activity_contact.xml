@@ -1,0 +1,109 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="20dp"
+    tools:context="com.example.guest.ipsofacto.ui.LoginActivity"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Meet the developer"
+        android:layout_marginTop="5dp"
+        android:textSize="36sp"
+        />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gloria Friesen"
+        android:textSize="26sp"
+        android:textColor="@color/colorAccent"
+        />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pretty, functional, and neat web and mobile development."
+        android:textSize="16sp"
+        android:layout_marginTop="5dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/me"
+            android:layout_marginRight="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="10dp"
+            >
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Want to connect?"
+                android:textSize="30sp"
+                />
+
+            <TextView
+                android:id="@+id/emailTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="gloriafriesen@gmail.com"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                />
+
+            <TextView
+                android:id="@+id/linkedinTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="linkedin.com/in/gloriafriesen"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                />
+
+            <TextView
+                android:id="@+id/githubTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="github.com/gloriafriesen"
+                android:textSize="20sp"
+                android:layout_marginTop="5dp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorAccent"
+        android:layout_marginTop="30dp"
+        />
+
+</LinearLayout>
