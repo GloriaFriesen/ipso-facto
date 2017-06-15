@@ -82,25 +82,18 @@ Politically engaged citizens.
   - [X] Implement drag to reorder saved legislators
   - [X] Implement swipe to delete saved legislator
   - [X] Implement animation when moving saved legislator
-- [ ] Implements alternate resource
-    - [ ] Landscape layout
+- [X] Implements alternate resource
+    - [X] Landscape layout
         - [X] activity_contact
-        - [ ] activity_create_account
-        - [ ] activity_login
-        - [ ] activity_about
-        - [ ] activity_legislator_detail
-        - [ ] activity_legislator_list
-        - [ ] activity_main
-        - [ ] legislator_list_item
-        - [ ] legislator_list_item_drag
+        - [X] activity_create_account
+        - [X] activity_login
+        - [X] activity_legislator_detail
+        - [x] activity_main
 - [ ] Publish to Google Play
 
 ## Known Bugs
 * SavedLegislatorList
     * Save Legislator button is at the bottom, not ideal
-* Layout is far from ideal, need to spend time improving especially across different screen sizes
-* Would like to display dialog fragment for search feature, in progress
-    * If not, need to fix layout on MainActivity, it's currently a mess
 * Email intent on Contact Activity - opens email but does not populate email address
 
 
