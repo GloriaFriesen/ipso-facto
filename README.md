@@ -78,8 +78,21 @@ Politically engaged citizens.
 - [X] Use progress dialog to inform users of login status
 
 #### Week 4:
-- [ ] Include 2 (minimum) gesture listeners, animations, or utilize camera
+- [X] Include 2 (minimum) gesture listeners, animations, or utilize camera
+  - [X] Implement drag to reorder saved legislators
+  - [X] Implement swipe to delete saved legislator
+  - [X] Implement animation when moving saved legislator
 - [ ] Implements alternate resource
+    - [ ] Landscape layout
+        - [X] activity_contact
+        - [ ] activity_create_account
+        - [ ] activity_login
+        - [ ] activity_about
+        - [ ] activity_legislator_detail
+        - [ ] activity_legislator_list
+        - [ ] activity_main
+        - [ ] legislator_list_item
+        - [ ] legislator_list_item_drag
 - [ ] Publish to Google Play
 
 ## Known Bugs

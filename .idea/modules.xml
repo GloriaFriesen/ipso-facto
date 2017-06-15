@@ -4,6 +4,13 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/IpsoFacto.iml" filepath="$PROJECT_DIR$/IpsoFacto.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+<<<<<<< HEAD
+=======
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ipso-facto.iml" filepath="$PROJECT_DIR$/ipso-facto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ipso-facto.iml" filepath="$PROJECT_DIR$/ipso-facto.iml" />
+>>>>>>> 8eab3de9f2c77474f4b74c4b5d9fd190c9666f58
       <module fileurl="file://$PROJECT_DIR$/ipso-facto.iml" filepath="$PROJECT_DIR$/ipso-facto.iml" />
     </modules>
   </component>
