@@ -92,8 +92,6 @@ Politically engaged citizens.
 - [ ] Publish to Google Play
 
 ## Known Bugs
-* SavedLegislatorList
-    * Save Legislator button is at the bottom, not ideal
 * Email intent on Contact Activity - opens email but does not populate email address
 
 ## Support and contact details
