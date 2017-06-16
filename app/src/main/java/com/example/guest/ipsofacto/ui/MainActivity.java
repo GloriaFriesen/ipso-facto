@@ -10,7 +10,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -23,15 +22,13 @@ import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.guest.ipsofacto.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
 import java.util.HashMap;
 import java.util.Map;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, RadioGroup.OnCheckedChangeListener, AdapterView.OnItemClickListener {
@@ -40,11 +37,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-    @Bind(R.id.submitLocationButton) FloatingActionButton mSubmitLocationButton;
-    @Bind(R.id.stateTextView) AutoCompleteTextView mStateTextView;
-    @Bind(R.id.titleTextView) TextView mTitleTextView;
-    @Bind(R.id.radioGroup) RadioGroup mRadioGroup;
-    @Bind(R.id.savedLegislatorButton) Button mSavedLegislatorButton;
+    @BindView(R.id.submitLocationButton) FloatingActionButton mSubmitLocationButton;
+    @BindView(R.id.stateTextView) AutoCompleteTextView mStateTextView;
+    @BindView(R.id.titleTextView) TextView mTitleTextView;
+    @BindView(R.id.radioGroup) RadioGroup mRadioGroup;
+    @BindView(R.id.savedLegislatorButton) Button mSavedLegislatorButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

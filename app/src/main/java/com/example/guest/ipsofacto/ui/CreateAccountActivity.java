@@ -20,16 +20,17 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
-import butterknife.Bind;
+
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class CreateAccountActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.nameEditText) EditText mNameEditText;
-    @Bind(R.id.emailEditText) EditText mEmailEditText;
-    @Bind(R.id.passwordEditText) EditText mPasswordEditText;
-    @Bind(R.id.confirmPasswordEditText) EditText mConfirmPasswordEditText;
-    @Bind(R.id.createUserButton) Button mCreateUserButton;
-    @Bind(R.id.signInButton) Button mSignInButton;
+    @BindView(R.id.nameEditText) EditText mNameEditText;
+    @BindView(R.id.emailEditText) EditText mEmailEditText;
+    @BindView(R.id.passwordEditText) EditText mPasswordEditText;
+    @BindView(R.id.confirmPasswordEditText) EditText mConfirmPasswordEditText;
+    @BindView(R.id.createUserButton) Button mCreateUserButton;
+    @BindView(R.id.signInButton) Button mSignInButton;
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
