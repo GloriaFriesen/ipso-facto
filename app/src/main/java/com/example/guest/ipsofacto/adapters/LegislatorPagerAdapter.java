@@ -11,15 +11,17 @@ import java.util.ArrayList;
 
 public class LegislatorPagerAdapter extends FragmentPagerAdapter {
     private ArrayList<Legislator> mLegislators;
+    private String mSource;
 
-    public LegislatorPagerAdapter(FragmentManager fragmentManager, ArrayList<Legislator> legislators) {
+    public LegislatorPagerAdapter(FragmentManager fragmentManager, ArrayList<Legislator> legislators, String source) {
         super(fragmentManager);
         mLegislators = legislators;
+        mSource = source;
     }
 
     @Override
     public Fragment getItem(int position) {
-        return LegislatorDetailFragment.newInstance(mLegislators.get(position));
+        return LegislatorDetailFragment.newInstance(mLegislators, position, mSource);
     }
 
     @Override

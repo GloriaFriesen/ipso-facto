@@ -8,5 +8,11 @@ public class Constants {
     public static final String FIREBASE_CHILD_LEGISLATORS = "legislators";
     public static final String PREFERENCES_SEARCHED_KEY = "searched";
     public static final String FIREBASE_QUERY_INDEX = "index";
+    public static final String EXTRA_KEY_POSITION = "position";
+    public static final String EXTRA_KEY_LEGISLATORS = "legislators";
+    public static final String KEY_SOURCE = "source";
+    public static final String SOURCE_SAVED = "saved";
+    public static final String SOURCE_FIND = "find";
+
 }
 
