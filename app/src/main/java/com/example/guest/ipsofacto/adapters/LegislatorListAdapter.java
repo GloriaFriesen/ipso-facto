@@ -18,11 +18,9 @@ import com.example.guest.ipsofacto.ui.LegislatorDetailActivity;
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class LegislatorListAdapter extends RecyclerView.Adapter<LegislatorListAdapter.LegislatorViewHolder> {
@@ -57,9 +55,9 @@ public class LegislatorListAdapter extends RecyclerView.Adapter<LegislatorListAd
     }
 
     public class LegislatorViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        @Bind(R.id.nameTextView) TextView mNameTextView;
-        @Bind(R.id.partyTextView) TextView mPartyTextView;
-        @Bind(R.id.roleTextView) TextView mRoleTextView;
+        @BindView(R.id.nameTextView) TextView mNameTextView;
+        @BindView(R.id.partyTextView) TextView mPartyTextView;
+        @BindView(R.id.roleTextView) TextView mRoleTextView;
 
         private Context mContext;
 

@@ -2,19 +2,16 @@ package com.example.guest.ipsofacto.ui;
 
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.guest.ipsofacto.Constants;
 import com.example.guest.ipsofacto.R;
 import com.example.guest.ipsofacto.models.Legislator;
@@ -23,13 +20,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
 import org.parceler.Parcels;
-
 import java.io.IOException;
-import java.util.Set;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -37,14 +31,14 @@ import okhttp3.Response;
 
 
 public class LegislatorDetailFragment extends Fragment implements View.OnClickListener{
-    @Bind(R.id.detailNameTextView) TextView mNameView;
-    @Bind(R.id.detailPartyTextView) TextView mPartyView;
-    @Bind(R.id.detailPhoneTextView) TextView mPhoneView;
-    @Bind(R.id.detailBirthDateTextView) TextView mBirthDateTextView;
-    @Bind(R.id.detailTimesURLTextView) TextView mTimesURLView;
-    @Bind(R.id.detailVotePartyPercentageTextView) TextView mVotePartyPercentView;
-    @Bind(R.id.detailWebsiteTextView) TextView mWebsiteView;
-    @Bind(R.id.saveLegislatorButton) FloatingActionButton mSaveLegislatorButton;
+    @BindView(R.id.detailNameTextView) TextView mNameView;
+    @BindView(R.id.detailPartyTextView) TextView mPartyView;
+    @BindView(R.id.detailPhoneTextView) TextView mPhoneView;
+    @BindView(R.id.detailBirthDateTextView) TextView mBirthDateTextView;
+    @BindView(R.id.detailTimesURLTextView) TextView mTimesURLView;
+    @BindView(R.id.detailVotePartyPercentageTextView) TextView mVotePartyPercentView;
+    @BindView(R.id.detailWebsiteTextView) TextView mWebsiteView;
+    @BindView(R.id.savedLegislatorButton) FloatingActionButton mSaveLegislatorButton;
 
     private Legislator mLegislator;
 
@@ -68,6 +62,7 @@ public class LegislatorDetailFragment extends Fragment implements View.OnClickLi
         getDetailLegislator(mLegislator);
     }
 
+    @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

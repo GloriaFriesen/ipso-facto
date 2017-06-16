@@ -9,13 +9,13 @@ import android.widget.TextView;
 
 import com.example.guest.ipsofacto.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ContactActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.emailTextView) TextView mEmailTextView;
-    @Bind(R.id.linkedinTextView) TextView mLinkedinTextView;
-    @Bind(R.id.githubTextView) TextView mGithubTextView;
+    @BindView(R.id.emailTextView) TextView mEmailTextView;
+    @BindView(R.id.linkedinTextView) TextView mLinkedinTextView;
+    @BindView(R.id.githubTextView) TextView mGithubTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

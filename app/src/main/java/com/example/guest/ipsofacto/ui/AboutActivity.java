@@ -8,11 +8,11 @@ import android.widget.TextView;
 
 import com.example.guest.ipsofacto.R;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class AboutActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.startContactFromAbout)
+    @BindView(R.id.startContactFromAbout)
     TextView mStartContactFromAbout;
 
     @Override
