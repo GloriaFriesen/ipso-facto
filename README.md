@@ -92,7 +92,7 @@ Politically engaged citizens.
 - [ ] Publish to Google Play
 
 ## Known Bugs
-* Email intent on Contact Activity - opens email but does not populate email address
+* There were a lot of bugs along the way, but I think I've smashed them all. If you find to the contrary, please let me know.
 
 ## Support and contact details
 Questions? Concerns? Suggestions? Reach out to me via github: <https://github.com/GloriaFriesen>.
