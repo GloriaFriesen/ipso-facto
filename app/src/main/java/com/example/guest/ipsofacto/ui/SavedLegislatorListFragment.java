@@ -84,3 +84,4 @@ public class SavedLegislatorListFragment extends Fragment implements OnStartDrag
     }
 
 }
+

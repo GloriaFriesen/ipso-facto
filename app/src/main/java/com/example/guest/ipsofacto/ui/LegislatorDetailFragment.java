@@ -22,6 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import org.parceler.Parcels;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -41,15 +42,21 @@ public class LegislatorDetailFragment extends Fragment implements View.OnClickLi
     @BindView(R.id.savedLegislatorButton) FloatingActionButton mSaveLegislatorButton;
 
     private Legislator mLegislator;
+    private String mSource;
+    private ArrayList<Legislator> mLegislators;
+    private int mPosition;
 
     public LegislatorDetailFragment() {
         // Required empty public constructor
     }
 
-    public static LegislatorDetailFragment newInstance(Legislator legislator) {
+    public static LegislatorDetailFragment newInstance(ArrayList<Legislator> legislators, Integer position, String source) {
         LegislatorDetailFragment legislatorDetailFragment = new LegislatorDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable("legislator", Parcels.wrap(legislator));
+
+        args.putParcelable(Constants.EXTRA_KEY_LEGISLATORS, Parcels.wrap(legislators));
+        args.putInt(Constants.EXTRA_KEY_POSITION, position);
+        args.putString(Constants.KEY_SOURCE, source);
         legislatorDetailFragment.setArguments(args);
         return legislatorDetailFragment;
     }
@@ -57,7 +64,10 @@ public class LegislatorDetailFragment extends Fragment implements View.OnClickLi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mLegislator = Parcels.unwrap(getArguments().getParcelable("legislator"));
+        mLegislators = Parcels.unwrap(getArguments().getParcelable(Constants.EXTRA_KEY_LEGISLATORS));
+        mPosition = getArguments().getInt(Constants.EXTRA_KEY_POSITION);
+        mSource = getArguments().getString(Constants.KEY_SOURCE);
+        mLegislator = mLegislators.get(mPosition);
 
         getDetailLegislator(mLegislator);
     }
@@ -69,13 +79,18 @@ public class LegislatorDetailFragment extends Fragment implements View.OnClickLi
         View view = inflater.inflate(R.layout.fragment_legislator_detail, container, false);
         ButterKnife.bind(this, view);
 
+        if (mSource.equals(Constants.SOURCE_SAVED)) {
+            mSaveLegislatorButton.setVisibility(View.GONE);
+        } else {
+            mSaveLegislatorButton.setOnClickListener(this);
+        }
+
         mNameView.setText(mLegislator.getName());
         mPartyView.setText(mLegislator.getParty());
 
         mPhoneView.setOnClickListener(this);
         mTimesURLView.setOnClickListener(this);
         mWebsiteView.setOnClickListener(this);
-        mSaveLegislatorButton.setOnClickListener(this);
 
         return view;
     }

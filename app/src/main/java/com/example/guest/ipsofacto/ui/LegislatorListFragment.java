@@ -1,6 +1,7 @@
 package com.example.guest.ipsofacto.ui;
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +13,8 @@ import com.example.guest.ipsofacto.R;
 import com.example.guest.ipsofacto.adapters.LegislatorListAdapter;
 import com.example.guest.ipsofacto.models.Legislator;
 import com.example.guest.ipsofacto.services.LegislatorService;
+import com.example.guest.ipsofacto.util.OnLegislatorSelectedListener;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -26,9 +29,20 @@ public class LegislatorListFragment extends Fragment {
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     private LegislatorListAdapter mAdapter;
     public ArrayList<Legislator> mLegislators = new ArrayList<>();
+    private OnLegislatorSelectedListener mOnLegislatorSelectedListener;
 
     public LegislatorListFragment() {
         // Required empty public constructor
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mOnLegislatorSelectedListener = (OnLegislatorSelectedListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString() + e.getMessage());
+        }
     }
 
     @Override
@@ -68,7 +82,7 @@ public class LegislatorListFragment extends Fragment {
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        mAdapter = new LegislatorListAdapter(getActivity(), mLegislators);
+                        mAdapter = new LegislatorListAdapter(getActivity(), mLegislators, mOnLegislatorSelectedListener);
                         mRecyclerView.setAdapter(mAdapter);
                         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
                         mRecyclerView.setLayoutManager(layoutManager);

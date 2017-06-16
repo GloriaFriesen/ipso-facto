@@ -31,9 +31,10 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         if (v == mEmailTextView) {
+            String [] addresses = {"gloriafriesen@gmail.com"};
             Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
             emailIntent.setData(Uri.parse("mailto:"));
-            emailIntent.putExtra(Intent.EXTRA_EMAIL, "gloriafriesen@gmail.com");
+            emailIntent.putExtra(Intent.EXTRA_EMAIL, addresses);
             if (emailIntent.resolveActivity(getPackageManager()) != null) {
                 startActivity(emailIntent);
             }

@@ -7,6 +7,7 @@ import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 import android.view.View;
 
+import com.example.guest.ipsofacto.Constants;
 import com.example.guest.ipsofacto.models.Legislator;
 import com.example.guest.ipsofacto.ui.LegislatorDetailActivity;
 import com.example.guest.ipsofacto.util.ItemTouchHelperAdapter;
@@ -80,9 +81,11 @@ public class FirebaseLegislatorListAdapter extends FirebaseRecyclerAdapter<Legis
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int itemPosition = viewHolder.getAdapterPosition();
                 Intent intent = new Intent(mContext, LegislatorDetailActivity.class);
-                intent.putExtra("position", viewHolder.getAdapterPosition());
-                intent.putExtra("legislators", Parcels.wrap(mLegislators));
+                intent.putExtra(Constants.EXTRA_KEY_POSITION, viewHolder.getAdapterPosition());
+                intent.putExtra(Constants.EXTRA_KEY_LEGISLATORS, Parcels.wrap(mLegislators));
+                intent.putExtra(Constants.KEY_SOURCE, Constants.SOURCE_SAVED);
                 mContext.startActivity(intent);
             }
         });
